@@ -18,11 +18,11 @@ public class Mascota {
     private int edad;
     private double peso;
     private String color;
-    private Propietario propietario;
+    private int id_propietario;
     
     //Generamos el constructor de nuestra calse Mascota
 
-    public Mascota(int id_mascota, String nombre, String especie, String raza, String sexo, int edad, double peso, String color, Propietario propietario) {
+    public Mascota(int id_mascota, String nombre, String especie, String raza, String sexo, int edad, double peso, String color, int id_propietario) {
         this.id_mascota = id_mascota;
         this.nombre = nombre;
         this.especie = especie;
@@ -31,7 +31,7 @@ public class Mascota {
         this.edad = edad;
         this.peso = peso;
         this.color = color;
-        this.propietario = propietario;
+        this.id_propietario = id_propietario;
     }
     
     //Generamos los setters de nuestra clase
@@ -68,8 +68,8 @@ public class Mascota {
         this.color = color;
     }
 
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
+    public void setPropietario(int id_propietario) {
+        this.id_propietario = id_propietario;
     }
     
     //Generamos los getters de nuestra clase 
@@ -106,8 +106,8 @@ public class Mascota {
         return color;
     }
 
-    public Propietario getPropietario() {
-        return propietario;
+    public int getPropietario() {
+        return id_propietario;
     }
 
     @Override
@@ -115,9 +115,9 @@ public class Mascota {
         return "Mascota{" + "id_mascota=" + id_mascota + ", nombre=" + nombre +
                 ", especie=" + especie + ", raza=" + raza + ", sexo=" + sexo +
                 ", edad=" + edad + ", peso=" + peso + ", color=" + color +
-                ", propietario=" + propietario + '}';
+                ", id_propietario=" + id_propietario + '}';
     }
     
-    
+   
 }
 
