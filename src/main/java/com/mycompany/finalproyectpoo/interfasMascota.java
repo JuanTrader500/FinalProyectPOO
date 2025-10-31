@@ -4,6 +4,7 @@
  */
 package com.mycompany.finalproyectpoo;
 
+import com.mycompany.finalproyectpoo.comboBox.RellenarCombos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +24,9 @@ public class interfasMascota extends javax.swing.JFrame {
      */
     public interfasMascota() {
         initComponents();
+        // cargar propietarios una vez al iniciar la ventana
+        RellenarCombos rc = new RellenarCombos();
+        rc.RellenarComboBox("propietario", "id", "nombre", comboPropietario);
     }
 
     /**
@@ -115,6 +119,11 @@ public class interfasMascota extends javax.swing.JFrame {
         });
 
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         comboPropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +142,7 @@ public class interfasMascota extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 19, Short.MAX_VALUE)
+                                .addGap(0, 70, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -206,18 +215,18 @@ public class interfasMascota extends javax.swing.JFrame {
                     .addComponent(comboPropietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
 
         pack();
@@ -227,40 +236,66 @@ public class interfasMascota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtid_mascotaActionPerformed
 
+    
+    
+    
     private void comboPropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPropietarioActionPerformed
 
-        //En esta funcion vamos a hacer una solicitud SQL para que nos salga un menu desplegable de todos
-    //Los propietarios registrados para poder hacer la relacion propietario Mascota
-
-    DefaultComboBoxModel<Propietario> model = new DefaultComboBoxModel<>();
-    String sql = "SELECT id, gmail, telefono, direccion, nombre FROM propietario";
-    try (Connection con = Conexion.conectar();
-         PreparedStatement ps = con.prepareStatement(sql);
-         ResultSet rs = ps.executeQuery()) {
-        System.out.println("Si se hace consulta SQL");
-
-        while (rs.next()) {
-            Propietario p = new Propietario(
-                
-                rs.getInt("id"),
-                rs.getString("gmail"),
-                rs.getString("telefono"),
-                rs.getString("direccion"),
-                rs.getString("nombre")
-                
-            );
-            System.out.println("Propietario encontrado: " + p.getNombre());
-
-            model.addElement(p);
-        }
-
-        comboPropietario.setModel(model); // ← aquí está la corrección
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error cargando propietarios: " + e.getMessage());
-    }
+        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_comboPropietarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        //En este boton se hara la solisitud SQL para poder enviar los campos a nuestra base de datos 
+        //Y guardarlos correctamente
+        
+        int id = Integer.parseInt(txtid_mascota.getText());
+        String nombre = txtnombre.getText();
+        String especie = txtespecie.getText();
+        String raza = txtraza.getText();
+        String sexo = txtsexo.getText();
+        int edad = Integer.parseInt(txtedad.getText());
+        double peso = Double.parseDouble(txtpeso.getText());
+        String color = txtcolor.getText();
+        
+        
+        //Esto es para tomar el ID del propietario seleccionado
+        String seleccionado = comboPropietario.getSelectedItem().toString();
+        
+        String[] partes = seleccionado.split(" - ");
+        int id_propietario = Integer.parseInt(partes[0]);
+        
+        
+        
+        
+        //Creamos un nuevo objeto veterinario
+        Mascota m = new Mascota(id,nombre,especie,raza,sexo,edad,peso,color,id_propietario);
+        
+        try (Connection con = Conexion.conectar()) {
+        String sql = "INSERT INTO mascota (id_mascota, nombre, especie, raza, sexo, edad,"
+                + " peso, color, id_propietario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, m.getId_mascota());
+        ps.setString(2,m.getNombre());
+        ps.setString(3,m.getEspecie());
+        ps.setString(4, m.getRaza());
+        ps.setString(5,m.getSexo());
+        ps.setInt(6,m.getEdad());
+        ps.setDouble(7,m.getPeso());
+        ps.setString(8,m.getColor());
+        ps.setInt(9, m.getPropietario());
+        
+        ps.executeUpdate();
+        JOptionPane.showMessageDialog(this, "Mascota guardada correctamente ;)");}
+        catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+        }
+
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
