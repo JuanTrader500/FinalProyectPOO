@@ -8,6 +8,7 @@ import com.mycompany.finalproyectpoo.comboBox.RellenarCombos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
@@ -27,6 +28,21 @@ public class interfasMascota extends javax.swing.JFrame {
         // cargar propietarios una vez al iniciar la ventana
         RellenarCombos rc = new RellenarCombos();
         rc.RellenarComboBox("propietario", "id", "nombre", comboPropietario);
+        
+        // Llenar comboSexo manualmente
+        comboSexo.addItem("Macho");
+        comboSexo.addItem("Hembra");
+        
+        // Combo especie
+        comboEspecie.removeAllItems();
+        comboEspecie.addItem("Canino");
+        comboEspecie.addItem("Felino");
+        comboEspecie.addItem("Ave");
+        comboEspecie.addItem("Reptil");
+        comboEspecie.addItem("Roedor");
+        comboEspecie.addItem("Equino");
+        comboEspecie.addItem("Otro");
+        
     }
 
     /**
@@ -42,7 +58,6 @@ public class interfasMascota extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -51,16 +66,15 @@ public class interfasMascota extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtid_mascota = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
-        txtespecie = new javax.swing.JTextField();
         txtraza = new javax.swing.JTextField();
-        txtsexo = new javax.swing.JTextField();
         txtedad = new javax.swing.JTextField();
         txtpeso = new javax.swing.JTextField();
         txtcolor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         comboPropietario = new javax.swing.JComboBox<>();
+        comboEspecie = new javax.swing.JComboBox<>();
+        comboSexo = new javax.swing.JComboBox<>();
 
         jLabel2.setText("jLabel2");
 
@@ -84,9 +98,6 @@ public class interfasMascota extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Id Mascota:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Nombre:");
@@ -112,12 +123,6 @@ public class interfasMascota extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Propietario:");
 
-        txtid_mascota.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtid_mascotaActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,54 +146,47 @@ public class interfasMascota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 70, Short.MAX_VALUE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtid_mascota)
-                                    .addComponent(txtespecie)
-                                    .addComponent(txtraza)
-                                    .addComponent(txtsexo)
-                                    .addComponent(txtedad)
-                                    .addComponent(txtpeso)
-                                    .addComponent(txtcolor)
-                                    .addComponent(comboPropietario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtnombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtraza)
+                            .addComponent(txtedad)
+                            .addComponent(txtpeso)
+                            .addComponent(txtcolor)
+                            .addComponent(comboPropietario, 0, 207, Short.MAX_VALUE)
+                            .addComponent(comboEspecie, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtid_mascota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtespecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -196,7 +194,7 @@ public class interfasMascota extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -232,10 +230,6 @@ public class interfasMascota extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtid_mascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtid_mascotaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtid_mascotaActionPerformed
-
     
     
     
@@ -251,11 +245,11 @@ public class interfasMascota extends javax.swing.JFrame {
         //En este boton se hara la solisitud SQL para poder enviar los campos a nuestra base de datos 
         //Y guardarlos correctamente
         
-        int id = Integer.parseInt(txtid_mascota.getText());
+       
         String nombre = txtnombre.getText();
-        String especie = txtespecie.getText();
+        String especie = comboEspecie.getSelectedItem().toString(); //opcion seleccionada del combo box
         String raza = txtraza.getText();
-        String sexo = txtsexo.getText();
+        String sexo = comboSexo.getSelectedItem().toString();//opcion seleccionada del combo box
         int edad = Integer.parseInt(txtedad.getText());
         double peso = Double.parseDouble(txtpeso.getText());
         String color = txtcolor.getText();
@@ -265,30 +259,36 @@ public class interfasMascota extends javax.swing.JFrame {
         String seleccionado = comboPropietario.getSelectedItem().toString();
         
         String[] partes = seleccionado.split(" - ");
-        int id_propietario = Integer.parseInt(partes[0]);
+        int id_propietario = Integer.parseInt(partes[0]);//opcion seleccionada del combo box solo el ID 
         
         
         
         
         //Creamos un nuevo objeto veterinario
-        Mascota m = new Mascota(id,nombre,especie,raza,sexo,edad,peso,color,id_propietario);
+        Mascota m = new Mascota(nombre,especie,raza,sexo,edad,peso,color,id_propietario);
         
         try (Connection con = Conexion.conectar()) {
-        String sql = "INSERT INTO mascota (id_mascota, nombre, especie, raza, sexo, edad,"
-                + " peso, color, id_propietario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, m.getId_mascota());
-        ps.setString(2,m.getNombre());
-        ps.setString(3,m.getEspecie());
-        ps.setString(4, m.getRaza());
-        ps.setString(5,m.getSexo());
-        ps.setInt(6,m.getEdad());
-        ps.setDouble(7,m.getPeso());
-        ps.setString(8,m.getColor());
-        ps.setInt(9, m.getPropietario());
+        String sql = "INSERT INTO mascota ( nombre, especie, raza, sexo, edad,"
+                + " peso, color, id_propietario) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        
+        ps.setString(1,m.getNombre());
+        ps.setString(2,m.getEspecie());
+        ps.setString(3, m.getRaza());
+        ps.setString(4,m.getSexo());
+        ps.setInt(5,m.getEdad());
+        ps.setDouble(6,m.getPeso());
+        ps.setString(7,m.getColor());
+        ps.setInt(8, m.getPropietario());
         
         ps.executeUpdate();
-        JOptionPane.showMessageDialog(this, "Mascota guardada correctamente ;)");}
+        
+        ResultSet rs = ps.getGeneratedKeys();
+        if (rs.next()) {
+            int idMascotaGenerado = rs.getInt(1);
+            JOptionPane.showMessageDialog(this, "Mascota guardada con ID: " + idMascotaGenerado);}
+        
+        }
         catch (Exception e) {
         JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
         }
@@ -323,13 +323,14 @@ public class interfasMascota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboEspecie;
     private javax.swing.JComboBox<Propietario> comboPropietario;
+    private javax.swing.JComboBox<String> comboSexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -340,11 +341,8 @@ public class interfasMascota extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtcolor;
     private javax.swing.JTextField txtedad;
-    private javax.swing.JTextField txtespecie;
-    private javax.swing.JTextField txtid_mascota;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtpeso;
     private javax.swing.JTextField txtraza;
-    private javax.swing.JTextField txtsexo;
     // End of variables declaration//GEN-END:variables
 }
