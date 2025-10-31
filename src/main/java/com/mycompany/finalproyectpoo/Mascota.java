@@ -33,6 +33,18 @@ public class Mascota {
         this.color = color;
         this.id_propietario = id_propietario;
     }
+
+    public Mascota(String nombre, String especie, String raza, String sexo, int edad, double peso, String color, int id_propietario) {
+        this.nombre = nombre;
+        this.especie = especie;
+        this.raza = raza;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.peso = peso;
+        this.color = color;
+        this.id_propietario = id_propietario;
+    }
+    
     
     //Generamos los setters de nuestra clase
 
