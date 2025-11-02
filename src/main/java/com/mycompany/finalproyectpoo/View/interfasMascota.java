@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.finalproyectpoo;
+package com.mycompany.finalproyectpoo.View;
 
-import com.mycompany.finalproyectpoo.comboBox.RellenarCombos;
+import com.mycompany.finalproyectpoo.DAO.Conexion;
+import com.mycompany.finalproyectpoo.Models.Propietario;
+import com.mycompany.finalproyectpoo.Models.Mascota;
+import com.mycompany.finalproyectpoo.DAO.RellenarCombos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
