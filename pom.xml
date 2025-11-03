@@ -20,6 +20,11 @@
     <artifactId>mysql-connector-j</artifactId>
     <version>8.0.33</version> <!-- o la más reciente -->
     </dependency>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
     
     
