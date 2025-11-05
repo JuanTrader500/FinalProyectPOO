@@ -4,6 +4,8 @@
 
 package com.mycompany.finalproyectpoo;
 
+import com.mycompany.finalproyectpoo.View.interfas;
+
 /**
  *
  * @author juana
