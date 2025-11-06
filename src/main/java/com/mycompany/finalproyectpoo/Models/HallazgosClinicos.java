@@ -9,6 +9,7 @@ package com.mycompany.finalproyectpoo.Models;
  * @author manue
  */
 public class HallazgosClinicos {
+
     private int id_hallazgo;
     private String piel_pelage;
     private String gangleos_linfatico;
@@ -21,10 +22,36 @@ public class HallazgosClinicos {
     private String musulo_esqueletico;
     private String palpacion_rectal;
     private String hallazgos_relevantes;
-    private String id_historia;
+    private int id_historia; 
 
-    public HallazgosClinicos(int id_hallazgo, String piel_pelage, String gangleos_linfatico, String digestivo, String respiratorio, String endocrino, String nervioso, String urinario, String reproductivo, String musulo_esqueletico, String palpacion_rectal, String hallazgos_relevantes, String id_historia) {
+    // Constructor completo (incluye id_hallazgo)
+    public HallazgosClinicos(int id_hallazgo, String piel_pelage, String gangleos_linfatico,
+                             String digestivo, String respiratorio, String endocrino,
+                             String nervioso, String urinario, String reproductivo,
+                             String musulo_esqueletico, String palpacion_rectal,
+                             String hallazgos_relevantes, int id_historia) {
+
         this.id_hallazgo = id_hallazgo;
+        this.piel_pelage = piel_pelage;
+        this.gangleos_linfatico = gangleos_linfatico;
+        this.digestivo = digestivo;
+        this.respiratorio = respiratorio;
+        this.endocrino = endocrino;
+        this.nervioso = nervioso;
+        this.urinario = urinario;
+        this.reproductivo = reproductivo;
+        this.musulo_esqueletico = musulo_esqueletico;
+        this.palpacion_rectal = palpacion_rectal;
+        this.hallazgos_relevantes = hallazgos_relevantes;
+        this.id_historia = id_historia;
+    }
+
+    public HallazgosClinicos(String piel_pelage, String gangleos_linfatico,
+                             String digestivo, String respiratorio, String endocrino,
+                             String nervioso, String urinario, String reproductivo,
+                             String musulo_esqueletico, String palpacion_rectal,
+                             String hallazgos_relevantes, int id_historia) {
+
         this.piel_pelage = piel_pelage;
         this.gangleos_linfatico = gangleos_linfatico;
         this.digestivo = digestivo;
@@ -87,7 +114,7 @@ public class HallazgosClinicos {
         return hallazgos_relevantes;
     }
 
-    public String getId_historia() {
+    public int getId_historia() {
         return id_historia;
     }
 
@@ -139,7 +166,7 @@ public class HallazgosClinicos {
         this.hallazgos_relevantes = hallazgos_relevantes;
     }
 
-    public void setId_historia(String id_historia) {
+    public void setId_historia(int id_historia) {
         this.id_historia = id_historia;
     }
 
