@@ -46,8 +46,6 @@ public class HallazgosClinicos {
         this.id_historia = id_historia;
     }
 
-   
-
     public int getId_hallazgo() {
         return id_hallazgo;
     }
@@ -96,7 +94,7 @@ public class HallazgosClinicos {
         return hallazgos_relevantes;
     }
 
-    public int getId_historia() {
+    public String getId_historia() {
         return id_historia;
     }
 
@@ -148,16 +146,19 @@ public class HallazgosClinicos {
         this.hallazgos_relevantes = hallazgos_relevantes;
     }
 
-    public void setId_historia(int id_historia) {
+    public void setId_historia(String id_historia) {
         this.id_historia = id_historia;
     }
 
     @Override
     public String toString() {
-        return "HallazgosClinicos{" + "id_hallazgo=" + id_hallazgo + ", piel_pelage=" + piel_pelage + ", gangleos_linfatico=" + gangleos_linfatico + ", digestivo=" + digestivo + ", respiratorio=" + respiratorio + ", endocrino=" + endocrino + ", nervioso=" + nervioso + ", urinario=" + urinario + ", reproductivo=" + reproductivo + ", musulo_esqueletico=" + musulo_esqueletico + ", palpacion_rectal=" + palpacion_rectal + ", hallazgos_relevantes=" + hallazgos_relevantes + ", id_historia=" + id_historia + '}';
+        return "HallazgosClinicos{" + "id_hallazgo=" + id_hallazgo +
+          ", piel_pelage=" + piel_pelage + ", gangleos_linfatico=" +
+          gangleos_linfatico + ", digestivo=" + digestivo + ", respiratorio=" + 
+          respiratorio + ", endocrino=" + endocrino + ", nervioso=" + nervioso + 
+          ", urinario=" + urinario + ", reproductivo=" + reproductivo + ", musulo_esqueletico=" + 
+          musulo_esqueletico + ", palpacion_rectal=" + palpacion_rectal + ", hallazgos_relevantes=" + 
+          hallazgos_relevantes + ", id_historia=" + id_historia + '}';
     }
 
-    
-    
-    
 }
