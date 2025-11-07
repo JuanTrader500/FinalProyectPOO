@@ -46,25 +46,7 @@ public class HallazgosClinicos {
         this.id_historia = id_historia;
     }
 
-    public HallazgosClinicos(String piel_pelage, String gangleos_linfatico,
-                             String digestivo, String respiratorio, String endocrino,
-                             String nervioso, String urinario, String reproductivo,
-                             String musulo_esqueletico, String palpacion_rectal,
-                             String hallazgos_relevantes, int id_historia) {
-
-        this.piel_pelage = piel_pelage;
-        this.gangleos_linfatico = gangleos_linfatico;
-        this.digestivo = digestivo;
-        this.respiratorio = respiratorio;
-        this.endocrino = endocrino;
-        this.nervioso = nervioso;
-        this.urinario = urinario;
-        this.reproductivo = reproductivo;
-        this.musulo_esqueletico = musulo_esqueletico;
-        this.palpacion_rectal = palpacion_rectal;
-        this.hallazgos_relevantes = hallazgos_relevantes;
-        this.id_historia = id_historia;
-    }
+   
 
     public int getId_hallazgo() {
         return id_hallazgo;
@@ -172,15 +154,10 @@ public class HallazgosClinicos {
 
     @Override
     public String toString() {
-        return "HallazgosClinicos{" + "id_hallazgo=" + id_hallazgo + 
-                ", piel_pelage=" + piel_pelage + ", gangleos_linfatico=" 
-                + gangleos_linfatico + ", digestivo=" + digestivo +
-                ", respiratorio=" + respiratorio + ", endocrino=" + 
-                endocrino + ", nervioso=" + nervioso + ", urinario=" + 
-                urinario + ", reproductivo=" + reproductivo + ", musulo_esqueletico=" +
-                musulo_esqueletico + ", palpacion_rectal=" + palpacion_rectal + 
-                ", hallazgos_relevantes=" + hallazgos_relevantes +'}';
+        return "HallazgosClinicos{" + "id_hallazgo=" + id_hallazgo + ", piel_pelage=" + piel_pelage + ", gangleos_linfatico=" + gangleos_linfatico + ", digestivo=" + digestivo + ", respiratorio=" + respiratorio + ", endocrino=" + endocrino + ", nervioso=" + nervioso + ", urinario=" + urinario + ", reproductivo=" + reproductivo + ", musulo_esqueletico=" + musulo_esqueletico + ", palpacion_rectal=" + palpacion_rectal + ", hallazgos_relevantes=" + hallazgos_relevantes + ", id_historia=" + id_historia + '}';
     }
+
+    
     
     
 }
