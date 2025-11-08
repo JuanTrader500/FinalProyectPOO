@@ -46,58 +46,6 @@ public class HallazgosClinicos {
         this.id_historia = id_historia;
     }
 
-    public int getId_hallazgo() {
-        return id_hallazgo;
-    }
-
-    public String getPiel_pelage() {
-        return piel_pelage;
-    }
-
-    public String getGangleos_linfatico() {
-        return gangleos_linfatico;
-    }
-
-    public String getDigestivo() {
-        return digestivo;
-    }
-
-    public String getRespiratorio() {
-        return respiratorio;
-    }
-
-    public String getEndocrino() {
-        return endocrino;
-    }
-
-    public String getNervioso() {
-        return nervioso;
-    }
-
-    public String getUrinario() {
-        return urinario;
-    }
-
-    public String getReproductivo() {
-        return reproductivo;
-    }
-
-    public String getMusulo_esqueletico() {
-        return musulo_esqueletico;
-    }
-
-    public String getPalpacion_rectal() {
-        return palpacion_rectal;
-    }
-
-    public String getHallazgos_relevantes() {
-        return hallazgos_relevantes;
-    }
-
-    public String getId_historia() {
-        return id_historia;
-    }
-
     public void setId_hallazgo(int id_hallazgo) {
         this.id_hallazgo = id_hallazgo;
     }
@@ -146,9 +94,63 @@ public class HallazgosClinicos {
         this.hallazgos_relevantes = hallazgos_relevantes;
     }
 
-    public void setId_historia(String id_historia) {
+    public void setId_historia(int id_historia) {
         this.id_historia = id_historia;
     }
+
+    public int getId_hallazgo() {
+        return id_hallazgo;
+    }
+
+    public String getPiel_pelage() {
+        return piel_pelage;
+    }
+
+    public String getGangleos_linfatico() {
+        return gangleos_linfatico;
+    }
+
+    public String getDigestivo() {
+        return digestivo;
+    }
+
+    public String getRespiratorio() {
+        return respiratorio;
+    }
+
+    public String getEndocrino() {
+        return endocrino;
+    }
+
+    public String getNervioso() {
+        return nervioso;
+    }
+
+    public String getUrinario() {
+        return urinario;
+    }
+
+    public String getReproductivo() {
+        return reproductivo;
+    }
+
+    public String getMusulo_esqueletico() {
+        return musulo_esqueletico;
+    }
+
+    public String getPalpacion_rectal() {
+        return palpacion_rectal;
+    }
+
+    public String getHallazgos_relevantes() {
+        return hallazgos_relevantes;
+    }
+
+    public int getId_historia() {
+        return id_historia;
+    }
+
+    
 
     @Override
     public String toString() {
