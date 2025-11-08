@@ -38,6 +38,8 @@ public class Diagnostico {
         this.tratamiento = tratamiento;
         this.id_historia = id_historia;
     }
+ 
+    // Se agregan los getters
     public int getId_diagnostico() {
         return id_diagnostico;
     }
@@ -65,7 +67,8 @@ public class Diagnostico {
     public int getId_historia() {
         return id_historia;
     }
-
+     
+    //Se agregan los setters
     public void setId_diagnostico(int id_diagnostico) {
         this.id_diagnostico = id_diagnostico;
     }
