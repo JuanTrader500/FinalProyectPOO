@@ -94,7 +94,7 @@ public class HallazgosClinicos {
         return hallazgos_relevantes;
     }
 
-    public String getId_historia() {
+    public int getId_historia() {
         return id_historia;
     }
 
@@ -146,7 +146,7 @@ public class HallazgosClinicos {
         this.hallazgos_relevantes = hallazgos_relevantes;
     }
 
-    public void setId_historia(String id_historia) {
+    public void setId_historia(int id_historia) {
         this.id_historia = id_historia;
     }
 
