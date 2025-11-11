@@ -166,44 +166,46 @@ public class interfasVeterinario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        //En este boton se hara la solisitud SQL para poder enviar los campos a nuestra base de datos 
-        //Y guardarlos correctamente
-        
-        int id = Integer.parseInt(txtId.getText());
-        String nombre = txtNombre.getText();
-        
-        //Creamos un nuevo objeto veterinario
-        Veterinario vet = new Veterinario(id, nombre);
-        
-        try (Connection con = Conexion.conectar()) {
-        String sql = "INSERT INTO veterinario (id_veterinario, nombre) VALUES (?, ?)";
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, vet.getId_veterinario());
-        ps.setString(2, vet.getNombre());
-        
-        ps.executeUpdate();
-        JOptionPane.showMessageDialog(this, "Veterinario guardado correctamente ");}
-        catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
-    }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        //En este boton se hara la solisitud SQL para poder enviar los campos a nuestra base de datos
+        //Y guardarlos correctamente
+
+        int id = Integer.parseInt(txtId.getText());
+        String nombre = txtNombre.getText();
+
+        //Creamos un nuevo objeto veterinario
+        Veterinario vet = new Veterinario(id, nombre);
+
+        try (Connection con = Conexion.conectar()) {
+            String sql = "INSERT INTO veterinario (id_veterinario, nombre) VALUES (?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, vet.getId_veterinario());
+            ps.setString(2, vet.getNombre());
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Veterinario guardado correctamente ");}
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     /**
      * @param args the command line arguments

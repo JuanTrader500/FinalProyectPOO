@@ -50,6 +50,8 @@ public class Anamnesis {
         this.motivo_consulta = motivo_consulta;
         this.id_historia = id_historia;
     }
+    
+    //Se agregan los getters
     public int getId_anamnesis() {
         return id_anamnesis;
     }
@@ -93,7 +95,8 @@ public class Anamnesis {
     public int getId_historia() {
         return id_historia;
     }
-
+    
+    //Se agregan los setters
     public void setId_anamnesis(int id_anamnesis) {
         this.id_anamnesis = id_anamnesis;
     }

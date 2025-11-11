@@ -34,6 +34,8 @@ public class ExamenComplementario {
         this.observacion = observacion;
         this.id_historia = id_historia;
     }
+    
+    //Se agregan los getters 
     public int getId_examen_complementario() {
         return id_examen_complementario;
     }
@@ -57,7 +59,8 @@ public class ExamenComplementario {
     public int getId_historia() {
         return id_historia;
     }
-
+    
+    //Se agregan los setters
     public void setId_examen_complementario(int id_examen_complementario) {
         this.id_examen_complementario = id_examen_complementario;
     }
