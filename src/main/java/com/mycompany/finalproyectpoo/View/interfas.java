@@ -125,7 +125,7 @@ public class interfas extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Ingresar Veterinario");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 150, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 150, -1));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 204));
         jButton4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -167,6 +167,7 @@ public class interfas extends javax.swing.JFrame {
 
         //Creamos una nueva ventana y hacemos que este boton nos lleve a la nueva interfas
         interfasPropietario interfas_propietario = new interfasPropietario();
+        interfas_propietario.setLocationRelativeTo(null);
         interfas_propietario.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -174,6 +175,7 @@ public class interfas extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         //Creamos una nueva ventana y hacemos que este boton nos lleve a la nueva interfas HISTORIA CLLINICA
         interfasHistoriaClinica interfas_historia = new interfasHistoriaClinica();
+        interfas_historia.setLocationRelativeTo(null);
         interfas_historia.setVisible(true);
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -181,6 +183,7 @@ public class interfas extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //Creamos una nueva ventana y hacemos que este boton nos lleve a la nueva interfas VETERINARIO
         interfasVeterinario interfas_veterinario = new interfasVeterinario();
+        interfas_veterinario.setLocationRelativeTo(null);
         interfas_veterinario.setVisible(true);
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -192,6 +195,7 @@ public class interfas extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Creamos una nueva ventana y hacemos que este boton nos lleve a la nueva interfas MASCOTA
         interfasMascota interfas_mascota = new interfasMascota();
+        interfas_mascota.setLocationRelativeTo(null);
         interfas_mascota.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
