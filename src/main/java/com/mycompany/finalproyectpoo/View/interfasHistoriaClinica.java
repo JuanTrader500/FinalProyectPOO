@@ -113,6 +113,9 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
     }//GEN-LAST:event_id_mascotaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+        interfasAnamnesis anam = new interfasAnamnesis();
+        anam.setVisible(true);
         
        
         
