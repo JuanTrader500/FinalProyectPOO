@@ -41,10 +41,7 @@ public class interfasMascota extends javax.swing.JFrame {
         comboEspecie.addItem("Canino");
         comboEspecie.addItem("Felino");
         comboEspecie.addItem("Ave");
-        comboEspecie.addItem("Reptil");
-        comboEspecie.addItem("Roedor");
-        comboEspecie.addItem("Equino");
-        comboEspecie.addItem("Otro");
+        
         
     }
 
@@ -96,6 +93,11 @@ public class interfasMascota extends javax.swing.JFrame {
         jLabel4.setText("Nombre:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
+        comboEspecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEspecieActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboEspecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -247,6 +249,10 @@ public class interfasMascota extends javax.swing.JFrame {
     private void comboSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSexoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSexoActionPerformed
+
+    private void comboEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEspecieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEspecieActionPerformed
 
     /**
      * @param args the command line arguments
