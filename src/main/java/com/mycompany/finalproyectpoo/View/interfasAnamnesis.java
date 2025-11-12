@@ -4,9 +4,16 @@
  */
 package com.mycompany.finalproyectpoo.View;
 import com.mycompany.finalproyectpoo.DAO.Conexion;
+import com.mycompany.finalproyectpoo.Models.Anamnesis;
 import static com.mysql.cj.conf.PropertyKey.logger;
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,15 +22,23 @@ import java.sql.SQLException;
 public class interfasAnamnesis extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(interfasAnamnesis.class.getName());
-
+    
+    
+    
     /**
      * Creates new form interfasAnamnesis
      */
-    public interfasAnamnesis() {
+    private int id_historia;
+    public interfasAnamnesis(int id_historia) {
+        this.id_historia = id_historia;
         initComponents();
     }
  
     private interfasAnamnesis(String dieta, String preexistencia, String cirugiasPrevias, String esquemaVacunal, String ultimaDesparasitacion, String tratamientosRecientes, String viajesRealizados, String convivenciaAnimales, String motivoConsulta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private interfasAnamnesis() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     /**
@@ -48,16 +63,15 @@ public class interfasAnamnesis extends javax.swing.JFrame {
         txtPreexistencia = new javax.swing.JTextField();
         txtEsquemaVacunal = new javax.swing.JTextField();
         txtTratamientoReciente = new javax.swing.JTextField();
-        txtUltimaDesparasitacion = new javax.swing.JTextField();
         txtViajesRealizados = new javax.swing.JTextField();
         txtConvivenciaAnimales = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        Dieta = new javax.swing.JTextArea();
+        txtDieta = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtMotivoConsulta = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        fecha = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,22 +111,21 @@ public class interfasAnamnesis extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Motivo Consulta:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 140, 20));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 140, 20));
         getContentPane().add(txtCirugiasPrevias, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 80, 20));
         getContentPane().add(txtPreexistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 80, 20));
         getContentPane().add(txtEsquemaVacunal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 80, 20));
         getContentPane().add(txtTratamientoReciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 80, 20));
-        getContentPane().add(txtUltimaDesparasitacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 80, 20));
         getContentPane().add(txtViajesRealizados, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 80, 20));
         getContentPane().add(txtConvivenciaAnimales, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 80, 20));
 
-        Dieta.setColumns(20);
-        Dieta.setRows(5);
-        jScrollPane1.setViewportView(Dieta);
+        txtDieta.setColumns(20);
+        txtDieta.setRows(5);
+        jScrollPane1.setViewportView(txtDieta);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 230, 90));
 
-        jButton1.setText("Guardar");
+        jButton1.setText("Guardar y Continuar");
         jButton1.setMaximumSize(new java.awt.Dimension(72, 22));
         jButton1.setMinimumSize(new java.awt.Dimension(72, 22));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +133,7 @@ public class interfasAnamnesis extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 104, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 180, 34));
 
         txtMotivoConsulta.setColumns(20);
         txtMotivoConsulta.setRows(5);
@@ -130,51 +143,68 @@ public class interfasAnamnesis extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Dieta:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 50, 20));
-
-        jButton2.setText("Continuar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 104, 34));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 50, 20));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 20));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        String dieta = txtCirugiasPrevias.getText();
+        String dieta = txtDieta.getText();
         String preexistencia = txtPreexistencia.getText();
         String cirugiasPrevias = txtCirugiasPrevias.getText();
         String esquemaVacunal = txtEsquemaVacunal.getText();
-        String ultimaDesparasitacion = txtUltimaDesparasitacion.getText();
+        
+        java.util.Date UltimaDesparasitacion = fecha.getDate();
+        java.sql.Date fechaSql = new java.sql.Date(UltimaDesparasitacion.getTime());
         String tratamientosRecientes = txtTratamientoReciente.getText();
         String viajesRealizados = txtViajesRealizados.getText();
         String convivenciaAnimales = txtConvivenciaAnimales.getText();
         String motivoConsulta = txtMotivoConsulta.getText();
         
 
-        interfasAnamnesis anam = new interfasAnamnesis( dieta, preexistencia, cirugiasPrevias,
-            esquemaVacunal, ultimaDesparasitacion, tratamientosRecientes,
-            viajesRealizados, convivenciaAnimales, motivoConsulta);
+        Anamnesis anam = new Anamnesis( dieta, preexistencia, cirugiasPrevias,
+            esquemaVacunal, fechaSql, tratamientosRecientes,
+            viajesRealizados, convivenciaAnimales, motivoConsulta,this.id_historia);
 
         try (Connection con = Conexion.conectar()) {
-            String sql = "INSERT INTO anamnesis (id_anamnesis, dieta, preexistencia, cirugiasPrevias, esquemaVacunal, ultimaDesparasitacion, tratamientosRecientes, viajesRealizados, convivenciaAnimales, motivoConsulta, id_historia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO anamnesis (dieta, preexistencia,"
+                    + " cirugias_previas, esquema_vacunal, ultima_desparasitacion,"
+                    + " tratamientos_recientes, viajes_realizados, convivencia_animales,"
+                    + " motivo_consulta, id_historia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            // En este caso se hace el statement para poder imprimir por pantalla el id de la mascota
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Anamnesis guardada correctamente:\n" + anam.toString());
-        } catch (SQLException ex) {
+            ps.setString(1,anam.getDieta());
+            ps.setString(2,anam.getPreexistencia());
+            ps.setString(3, anam.getCirugias_previas());
+            ps.setString(4,anam.getEsquema_vacunal());
+            ps.setDate(5,(java.sql.Date)anam.getUltima_desparasitacion());
+            ps.setString(6,anam.getTratamientos_recientes());
+            ps.setString(7,anam.getViajes_realizados());
+            ps.setString(8, anam.getConvivencia_animales());
+            ps.setString(9,anam.getMotivo_consulta());
+            ps.setInt(10,this.id_historia);
+        
+            //Hacemos esto para que se cree la siguiente ventana y que salga el mensaje de que se guardo en la base de datos 
+            int rowsInserted = ps.executeUpdate(); // guarda datos
+            if (rowsInserted > 0) { // sólo se abre si se guardó bien
+                examen_fisico examen_fisicoFrame = new examen_fisico(this.id_historia);
+                examen_fisicoFrame.setLocationRelativeTo(null); // centra el nuevo frame
+                examen_fisicoFrame.setVisible(true); // muestra la ventana
+                this.dispose(); // cierra el frame actual si ya no lo necesitas
+            }
+            
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,9 +232,8 @@ public class interfasAnamnesis extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea Dieta;
+    private com.toedter.calendar.JDateChooser fecha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -220,11 +249,11 @@ public class interfasAnamnesis extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtCirugiasPrevias;
     private javax.swing.JTextField txtConvivenciaAnimales;
+    private javax.swing.JTextArea txtDieta;
     private javax.swing.JTextField txtEsquemaVacunal;
     private javax.swing.JTextArea txtMotivoConsulta;
     private javax.swing.JTextField txtPreexistencia;
     private javax.swing.JTextField txtTratamientoReciente;
-    private javax.swing.JTextField txtUltimaDesparasitacion;
     private javax.swing.JTextField txtViajesRealizados;
     // End of variables declaration//GEN-END:variables
 }

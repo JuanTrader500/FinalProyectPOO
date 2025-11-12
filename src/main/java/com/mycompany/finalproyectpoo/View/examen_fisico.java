@@ -15,8 +15,14 @@ public class examen_fisico extends javax.swing.JFrame {
     /**
      * Creates new form examen_fisico
      */
-    public examen_fisico() {
+    private int id_historia;
+    public examen_fisico(int id_historia) {
+        this.id_historia = id_historia;
         initComponents();
+    }
+
+    private examen_fisico() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
