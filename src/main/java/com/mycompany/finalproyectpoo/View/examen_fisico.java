@@ -4,6 +4,14 @@
  */
 package com.mycompany.finalproyectpoo.View;
 
+import com.mycompany.finalproyectpoo.DAO.Conexion;
+import com.mycompany.finalproyectpoo.Models.ExamenFisico;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juana
@@ -39,7 +47,7 @@ public class examen_fisico extends javax.swing.JFrame {
         comboDeshi = new javax.swing.JComboBox<>();
         txtTemperatura = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        comboMucosa = new javax.swing.JComboBox<>();
+        ComboMucosa = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         txtFRespiratoria = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -55,7 +63,6 @@ public class examen_fisico extends javax.swing.JFrame {
         txtObservacion = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,6 +73,7 @@ public class examen_fisico extends javax.swing.JFrame {
         jLabel4.setText("Condicoin Corporal:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, -1));
 
+        comboDeshi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
         comboDeshi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboDeshiActionPerformed(evt);
@@ -78,12 +86,13 @@ public class examen_fisico extends javax.swing.JFrame {
         jLabel6.setText("Temperatura:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
-        comboMucosa.addActionListener(new java.awt.event.ActionListener() {
+        ComboMucosa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rosa", "Pálida", "Cianótica", "Ictérica", "Congestionada/Roja", "Seca/Húmeda" }));
+        ComboMucosa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboMucosaActionPerformed(evt);
+                ComboMucosaActionPerformed(evt);
             }
         });
-        getContentPane().add(comboMucosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 90, -1));
+        getContentPane().add(ComboMucosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 90, -1));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Deshidratacion");
@@ -139,21 +148,13 @@ public class examen_fisico extends javax.swing.JFrame {
         jLabel3.setText("Examen Fisico");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 160, 30));
 
-        jButton1.setText("Guardar");
+        jButton1.setText("Guardar y Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 90, 40));
-
-        jButton2.setText("Continuar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 90, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 170, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
@@ -161,9 +162,9 @@ public class examen_fisico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboMucosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMucosaActionPerformed
+    private void ComboMucosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboMucosaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboMucosaActionPerformed
+    }//GEN-LAST:event_ComboMucosaActionPerformed
 
     private void comboDeshiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDeshiActionPerformed
         // TODO add your handling code here:
@@ -178,12 +179,61 @@ public class examen_fisico extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRCapilarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    
+        String Condicion = txtCondicion.getText();
+        String Temperatura = txtTemperatura.getText();
+        String Respirar = txtFRespiratoria.getText();
+        String Cardiaca = txtFCardiaca.getText();
+        String Capilar = txtRCapilar.getText();
+        String Pulso = txtPulso.getText();
+        String Mucosa = ComboMucosa.getSelectedItem().toString();//opcion seleccionada del combo box;
+        String Hidratacion = comboDeshi.getSelectedItem().toString();
+        String Observacion = txtObservacion.getText();
+        
+        //Ahora vamos a crear el objeto para hacer la consulta
+        
+        ExamenFisico ef = new ExamenFisico(Condicion,Temperatura,Respirar,Cardiaca,
+                Capilar,Pulso,Mucosa,Hidratacion,Observacion,this.id_historia);
+       
+        try (Connection con = Conexion.conectar()) {
+            String sql = "INSERT INTO examen_fisico (condicion_corporal, temperatura,"
+                    + " frecuencia_respiratoria, frecuencia_cardiaca, relleno_capilar,"
+                    + " pulso, mucosas, deshidratacion,"
+                    + " observaciones, id_historia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            // En este caso se hace el statement para poder imprimir por pantalla el id de la mascota
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+            ps.setString(1,ef.getCondicion_corporal());
+            ps.setString(2,ef.getTemperatura());
+            ps.setString(3, ef.getFrecuencia_respiratoria());
+            ps.setString(4,ef.getFrecuencia_cardiaca());
+            ps.setString(5,ef.getRelleno_capilar());
+            ps.setString(6,ef.getPulso());
+            ps.setString(7, ef.getMucosas());
+            ps.setString(8,ef.getDeshidratacion());
+            ps.setString(9,ef.getObservaciones());
+            ps.setInt(10,this.id_historia);
+        
+            //Hacemos esto para que se cree la siguiente ventana y que salga el mensaje de que se guardo en la base de datos 
+            int rowsInserted = ps.executeUpdate(); // guarda datos
+            if (rowsInserted > 0) { // sólo se abre si se guardó bien
+                interfasHallazgosClinicos hallazgosframe = new interfasHallazgosClinicos(this.id_historia);
+                hallazgosframe.setLocationRelativeTo(null); // centra el nuevo frame
+                hallazgosframe.setVisible(true); // muestra la ventana
+                this.dispose(); // cierra el frame actual si ya no lo necesitas
+            }
+            
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,10 +261,9 @@ public class examen_fisico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboMucosa;
     private javax.swing.JComboBox<String> comboDeshi;
-    private javax.swing.JComboBox<String> comboMucosa;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
