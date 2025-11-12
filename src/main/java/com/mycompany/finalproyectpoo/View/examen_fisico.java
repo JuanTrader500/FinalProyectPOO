@@ -67,11 +67,11 @@ public class examen_fisico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(txtCondicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 110, -1));
+        getContentPane().add(txtCondicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 110, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Condicoin Corporal:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 160, -1));
 
         comboDeshi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
         comboDeshi.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +80,11 @@ public class examen_fisico extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboDeshi, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 90, -1));
-        getContentPane().add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 110, -1));
+        getContentPane().add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Temperatura:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 130, -1));
 
         ComboMucosa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rosa", "Pálida", "Cianótica", "Ictérica", "Congestionada/Roja", "Seca/Húmeda" }));
         ComboMucosa.addActionListener(new java.awt.event.ActionListener() {
@@ -97,38 +97,38 @@ public class examen_fisico extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Deshidratacion");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 120, -1));
-        getContentPane().add(txtFRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 110, -1));
+        getContentPane().add(txtFRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, -1));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Frecuencia Cardiaca:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 160, -1));
-        getContentPane().add(txtFCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 160, -1));
+        getContentPane().add(txtFCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 110, -1));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setText("Frecuencia Respiratoria:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 190, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 190, -1));
 
         txtRCapilar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRCapilarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtRCapilar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 110, -1));
+        getContentPane().add(txtRCapilar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 110, -1));
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setText("Relleno Capilar:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 140, -1));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Pulso:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 90, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 90, -1));
 
         txtPulso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPulsoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtPulso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 110, 20));
+        getContentPane().add(txtPulso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 110, 20));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel1.setText("Mucosas:");
@@ -154,10 +154,10 @@ public class examen_fisico extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 170, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, 170, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
