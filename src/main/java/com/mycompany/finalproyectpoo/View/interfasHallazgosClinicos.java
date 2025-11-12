@@ -15,9 +15,18 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
     /**
      * Creates new form interfasHallazgosClinicos
      */
-    public interfasHallazgosClinicos() {
+    
+    private int id_historia;
+    public interfasHallazgosClinicos(int id_historia) {
+        this.id_historia = id_historia;
         initComponents();
     }
+
+    private interfasHallazgosClinicos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,7 +53,6 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         Nervioso = new javax.swing.JComboBox<>();
         Urinario = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -126,7 +134,7 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         Urinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dificultad para orinar (disuria)", "Orina con sangre (hematuria)" }));
         getContentPane().add(Urinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
 
-        jButton1.setText("Guardar");
+        jButton1.setText("Guardar y Continuar");
         jButton1.setMaximumSize(new java.awt.Dimension(72, 22));
         jButton1.setMinimumSize(new java.awt.Dimension(72, 22));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,15 +142,7 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 104, 34));
-
-        jButton2.setText("Continuar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 104, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 190, 34));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Reproductivo:");
@@ -192,14 +192,12 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+        //Use esto de combo boxses etc
+        String Mucosa = PielPelaje.getSelectedItem().toString();//opcion seleccionada del combo box;
       
 
     
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,7 +237,6 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Respiratorio;
     private javax.swing.JComboBox<String> Urinario;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
