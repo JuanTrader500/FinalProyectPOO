@@ -30,23 +30,23 @@ public class examen_fisico extends javax.swing.JFrame {
 
         txtCondicion = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        comboEspecie = new javax.swing.JComboBox<>();
+        comboDeshi = new javax.swing.JComboBox<>();
         txtTemperatura = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        comboSexo = new javax.swing.JComboBox<>();
+        comboMucosa = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        txtedad = new javax.swing.JTextField();
+        txtFRespiratoria = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtpeso = new javax.swing.JTextField();
+        txtFCardiaca = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtcolor = new javax.swing.JTextField();
+        txtRCapilar = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtPulso = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtObservacion = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -56,77 +56,78 @@ public class examen_fisico extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(txtCondicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 110, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setText("Condicoin Corporal");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, -1));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel4.setText("Condicoin Corporal:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 160, -1));
 
-        comboEspecie.addActionListener(new java.awt.event.ActionListener() {
+        comboDeshi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEspecieActionPerformed(evt);
+                comboDeshiActionPerformed(evt);
             }
         });
-        getContentPane().add(comboEspecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 110, -1));
+        getContentPane().add(comboDeshi, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, 90, -1));
         getContentPane().add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 110, -1));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Temperatura:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 130, -1));
 
-        comboSexo.addActionListener(new java.awt.event.ActionListener() {
+        comboMucosa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSexoActionPerformed(evt);
+                comboMucosaActionPerformed(evt);
             }
         });
-        getContentPane().add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 110, -1));
+        getContentPane().add(comboMucosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 90, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Deshidratacion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 100, -1));
-        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 110, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 120, -1));
+        getContentPane().add(txtFRespiratoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 110, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel8.setText("Frecuencia Cardiaca");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 130, -1));
-        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, -1));
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel8.setText("Frecuencia Cardiaca:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 160, -1));
+        getContentPane().add(txtFCardiaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 110, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel10.setText("Frecuencia Respiratoria");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 150, -1));
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel10.setText("Frecuencia Respiratoria:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 190, -1));
 
-        txtcolor.addActionListener(new java.awt.event.ActionListener() {
+        txtRCapilar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcolorActionPerformed(evt);
+                txtRCapilarActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 110, -1));
+        getContentPane().add(txtRCapilar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 110, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel9.setText("Relleno Capilar");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 110, -1));
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setText("Relleno Capilar:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel11.setText("Pulso");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 83, -1));
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel11.setText("Pulso:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 90, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtPulso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtPulsoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 110, 20));
+        getContentPane().add(txtPulso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 110, 20));
 
-        jLabel1.setText("Mucosas");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 60, 20));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel1.setText("Mucosas:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 90, 20));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("Observaciones");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 90, -1));
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel2.setText("Observaciones:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 130, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtObservacion.setColumns(20);
+        txtObservacion.setRows(5);
+        jScrollPane1.setViewportView(txtObservacion);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, -1, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, 90));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         jLabel3.setText("Examen Fisico");
@@ -138,7 +139,7 @@ public class examen_fisico extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 90, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 90, 40));
 
         jButton2.setText("Continuar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +147,7 @@ public class examen_fisico extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 90, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 90, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
@@ -154,21 +155,21 @@ public class examen_fisico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSexoActionPerformed
+    private void comboMucosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboMucosaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboSexoActionPerformed
+    }//GEN-LAST:event_comboMucosaActionPerformed
 
-    private void comboEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEspecieActionPerformed
+    private void comboDeshiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDeshiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboEspecieActionPerformed
+    }//GEN-LAST:event_comboDeshiActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtPulsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPulsoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtPulsoActionPerformed
 
-    private void txtcolorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcolorActionPerformed
+    private void txtRCapilarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRCapilarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcolorActionPerformed
+    }//GEN-LAST:event_txtRCapilarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -204,8 +205,8 @@ public class examen_fisico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> comboEspecie;
-    private javax.swing.JComboBox<String> comboSexo;
+    private javax.swing.JComboBox<String> comboDeshi;
+    private javax.swing.JComboBox<String> comboMucosa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -220,12 +221,12 @@ public class examen_fisico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtCondicion;
+    private javax.swing.JTextField txtFCardiaca;
+    private javax.swing.JTextField txtFRespiratoria;
+    private javax.swing.JTextArea txtObservacion;
+    private javax.swing.JTextField txtPulso;
+    private javax.swing.JTextField txtRCapilar;
     private javax.swing.JTextField txtTemperatura;
-    private javax.swing.JTextField txtcolor;
-    private javax.swing.JTextField txtedad;
-    private javax.swing.JTextField txtpeso;
     // End of variables declaration//GEN-END:variables
 }
