@@ -21,7 +21,11 @@ public class Anamnesis {
     private String motivo_consulta;
     private int id_historia;
 
-    public Anamnesis(int id_anamnesis, String dieta, String preexistencia, String cirugias_previas, String esquema_vacunal, String ultima_desparasitacion, String tratamientos_recientes, String viajes_realizados, String convivencia_animales, String motivo_consulta, int id_historia) {
+    public Anamnesis(int id_anamnesis, String dieta, String preexistencia, 
+            String cirugias_previas, String esquema_vacunal,
+            String ultima_desparasitacion, String tratamientos_recientes,
+            String viajes_realizados, String convivencia_animales,
+            String motivo_consulta, int id_historia) {
         this.id_anamnesis = id_anamnesis;
         this.dieta = dieta;
         this.preexistencia = preexistencia;

@@ -41,10 +41,7 @@ public class interfasMascota extends javax.swing.JFrame {
         comboEspecie.addItem("Canino");
         comboEspecie.addItem("Felino");
         comboEspecie.addItem("Ave");
-        comboEspecie.addItem("Reptil");
-        comboEspecie.addItem("Roedor");
-        comboEspecie.addItem("Equino");
-        comboEspecie.addItem("Otro");
+        
         
     }
 
@@ -58,6 +55,7 @@ public class interfasMascota extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -81,6 +79,8 @@ public class interfasMascota extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
+        jLabel3.setText("jLabel3");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -89,20 +89,25 @@ public class interfasMascota extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 226, -1));
         getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 110, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Nombre:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
+        comboEspecie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEspecieActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboEspecie, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 110, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Especie:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
         getContentPane().add(txtraza, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 110, -1));
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Raza:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 37, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 60, -1));
 
         comboSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,35 +116,35 @@ public class interfasMascota extends javax.swing.JFrame {
         });
         getContentPane().add(comboSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 110, -1));
 
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Sexo:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 37, -1));
-        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 92, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 60, -1));
+        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 130, 92, -1));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText("Edad:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 37, -1));
-        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 170, 92, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 60, -1));
+        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 92, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setText("Peso:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 43, -1));
-        getContentPane().add(txtcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 92, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 170, 50, -1));
+        getContentPane().add(txtcolor, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 92, -1));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel9.setText("Color:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 43, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 60, -1));
 
         comboPropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboPropietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(comboPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 92, -1));
+        getContentPane().add(comboPropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 92, -1));
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Propietario:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 83, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 90, -1));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton2.setText("Atras");
@@ -148,7 +153,7 @@ public class interfasMascota extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 110, 39));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 110, 39));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jButton1.setText("Guardar");
@@ -245,6 +250,10 @@ public class interfasMascota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSexoActionPerformed
 
+    private void comboEspecieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEspecieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEspecieActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -281,6 +290,7 @@ public class interfasMascota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
