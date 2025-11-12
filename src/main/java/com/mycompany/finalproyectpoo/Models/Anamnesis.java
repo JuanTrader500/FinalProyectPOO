@@ -4,6 +4,8 @@
  */
 package com.mycompany.finalproyectpoo.Models;
 
+import java.sql.Date;
+
 /**
  *
  * @author manue
@@ -14,7 +16,7 @@ public class Anamnesis {
     private String preexistencia;
     private String cirugias_previas;
     private String esquema_vacunal;
-    private String ultima_desparasitacion;
+    private Date ultima_desparasitacion;
     private String tratamientos_recientes;
     private String viajes_realizados;
     private String convivencia_animales;
@@ -23,7 +25,7 @@ public class Anamnesis {
 
     public Anamnesis(int id_anamnesis, String dieta, String preexistencia, 
             String cirugias_previas, String esquema_vacunal,
-            String ultima_desparasitacion, String tratamientos_recientes,
+            Date ultima_desparasitacion, String tratamientos_recientes,
             String viajes_realizados, String convivencia_animales,
             String motivo_consulta, int id_historia) {
         this.id_anamnesis = id_anamnesis;
@@ -40,7 +42,7 @@ public class Anamnesis {
     }
 
     public Anamnesis( String dieta, String preexistencia, String cirugias_previas, 
-            String esquema_vacunal, String ultima_desparasitacion, String tratamientos_recientes, 
+            String esquema_vacunal, Date ultima_desparasitacion, String tratamientos_recientes, 
             String viajes_realizados, String convivencia_animales, String motivo_consulta, int id_historia) {
         
         this.dieta = dieta;
@@ -53,6 +55,14 @@ public class Anamnesis {
         this.convivencia_animales = convivencia_animales;
         this.motivo_consulta = motivo_consulta;
         this.id_historia = id_historia;
+    }
+
+    public Anamnesis(String dieta, String preexistencia, String cirugiasPrevias, String esquemaVacunal, Date ultimaDesparasitacion, String tratamientosRecientes, String viajesRealizados, String convivenciaAnimales, String motivoConsulta) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Anamnesis(String dieta, String preexistencia, String cirugiasPrevias, String esquemaVacunal, java.util.Date UltimaDesparasitacion, String tratamientosRecientes, String viajesRealizados, String convivenciaAnimales, String motivoConsulta, int id_historia) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     //Se agregan los getters
@@ -76,7 +86,7 @@ public class Anamnesis {
         return esquema_vacunal;
     }
 
-    public String getUltima_desparasitacion() {
+    public Date getUltima_desparasitacion() {
         return ultima_desparasitacion;
     }
 
@@ -121,7 +131,7 @@ public class Anamnesis {
         this.esquema_vacunal = esquema_vacunal;
     }
 
-    public void setUltima_desparasitacion(String ultima_desparasitacion) {
+    public void setUltima_desparasitacion(Date ultima_desparasitacion) {
         this.ultima_desparasitacion = ultima_desparasitacion;
     }
 

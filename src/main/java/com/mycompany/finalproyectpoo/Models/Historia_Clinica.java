@@ -4,6 +4,9 @@
  */
 package com.mycompany.finalproyectpoo.Models;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author manue
@@ -12,14 +15,24 @@ public class Historia_Clinica {
     private int id_historia;
     private int id_veterinario;
     private int id_mascota;
-    private String fecha_creacion;
+    private Date fecha_creacion;
 
-    public Historia_Clinica(int id_historia, int id_veterinario, int id_mascota, String fecha_creacion) {
+    public Historia_Clinica(int id_historia, int id_veterinario, int id_mascota, Date fecha_creacion) {
         this.id_historia = id_historia;
         this.id_veterinario = id_veterinario;
         this.id_mascota = id_mascota;
         this.fecha_creacion = fecha_creacion;
     }
+
+    public Historia_Clinica(int id_veterinario, int id_mascota, Date fecha_creacion) {
+        this.id_veterinario = id_veterinario;
+        this.id_mascota = id_mascota;
+        this.fecha_creacion = fecha_creacion;
+    }
+    
+    
+    
+    
 
     public int getId_historia() {
         return id_historia;
@@ -33,7 +46,7 @@ public class Historia_Clinica {
         return id_mascota;
     }
 
-    public String getFecha_creacion() {
+    public Date getFecha_creacion() {
         return fecha_creacion;
     }
 
@@ -49,7 +62,7 @@ public class Historia_Clinica {
         this.id_mascota = id_mascota;
     }
 
-    public void setFecha_creacion(String fecha_creacion) {
+    public void setFecha_creacion(Date fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
 

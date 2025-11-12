@@ -4,9 +4,18 @@
  */
 package com.mycompany.finalproyectpoo.View;
 
+import com.mycompany.finalproyectpoo.DAO.Conexion;
+import com.mycompany.finalproyectpoo.Models.Historia_Clinica;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -40,10 +49,10 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        id_veterinario = new javax.swing.JTextField();
+        txtid_veterinario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        id_mascota = new javax.swing.JTextField();
+        txtfecha = new com.toedter.calendar.JDateChooser();
+        txtid_mascota = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -63,24 +72,24 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
         jLabel3.setText("Id Veterinario:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 112, -1));
 
-        id_veterinario.addActionListener(new java.awt.event.ActionListener() {
+        txtid_veterinario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_veterinarioActionPerformed(evt);
+                txtid_veterinarioActionPerformed(evt);
             }
         });
-        getContentPane().add(id_veterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 134, -1));
+        getContentPane().add(txtid_veterinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 134, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Id Mascota:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 112, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 134, -1));
+        getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 134, -1));
 
-        id_mascota.addActionListener(new java.awt.event.ActionListener() {
+        txtid_mascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_mascotaActionPerformed(evt);
+                txtid_mascotaActionPerformed(evt);
             }
         });
-        getContentPane().add(id_mascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 134, -1));
+        getContentPane().add(txtid_mascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 134, -1));
 
         jButton1.setText("Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,15 +97,15 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 110, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 110, 34));
 
-        jButton2.setText("Guardar");
+        jButton2.setText("Guardar y Continuar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 104, 34));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 150, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
@@ -104,15 +113,18 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void id_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_veterinarioActionPerformed
+    private void txtid_veterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtid_veterinarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_id_veterinarioActionPerformed
+    }//GEN-LAST:event_txtid_veterinarioActionPerformed
 
-    private void id_mascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_mascotaActionPerformed
+    private void txtid_mascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtid_mascotaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_id_mascotaActionPerformed
+    }//GEN-LAST:event_txtid_mascotaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+        //interfasAnamnesis anam = new interfasAnamnesis();
+        //anam.setVisible(true);
         
        
         
@@ -120,6 +132,44 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        int id_veterinario = Integer.parseInt(txtid_veterinario.getText());
+        java.util.Date fechaSeleccionada = txtfecha.getDate();
+        java.sql.Date fechaSql = new java.sql.Date(fechaSeleccionada.getTime());
+        int id_mascota = Integer.parseInt(txtid_mascota.getText());
+        //Creamos objeto historia clinica
+        Historia_Clinica hc = new Historia_Clinica(id_veterinario, id_mascota, fechaSql);
+        
+       
+        try (Connection con = Conexion.conectar()) {
+        String sql = "INSERT INTO historia_clinica ( id_veterinario, id_mascota, fecha_creacion"+ ") VALUES (?, ?, ?)";
+        
+        // En este caso se hace el statement para poder imprimir por pantalla el id de la mascota
+        PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+        
+        ps.setInt(1,hc.getId_veterinario());
+        ps.setInt(2,hc.getId_mascota());
+        ps.setDate(3, (java.sql.Date) hc.getFecha_creacion());
+        
+        
+        ps.executeUpdate();
+        
+        ResultSet rs = ps.getGeneratedKeys();
+        if (rs.next()) {
+            int id_hc = rs.getInt(1);
+            interfasAnamnesis anamnesisFrame = new interfasAnamnesis(id_hc);
+            anamnesisFrame.setLocationRelativeTo(null);
+            anamnesisFrame.setVisible(true);
+            JOptionPane.showMessageDialog(this, "Id_Historia clinica es : " + id_hc);}
+            this.dispose(); // cierra el frame actual si ya no lo necesitas
+            
+        }
+        catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+        }
+
+        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -149,16 +199,16 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField id_mascota;
-    private javax.swing.JTextField id_veterinario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private com.toedter.calendar.JDateChooser txtfecha;
+    private javax.swing.JTextField txtid_mascota;
+    private javax.swing.JTextField txtid_veterinario;
     // End of variables declaration//GEN-END:variables
 }
