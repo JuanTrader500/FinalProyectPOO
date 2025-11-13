@@ -15,8 +15,13 @@ public class examen_complementario extends javax.swing.JFrame {
     /**
      * Creates new form examen_complementario
      */
-    public examen_complementario() {
+    private int id_historia;
+    public examen_complementario(int id_historia) {
         initComponents();
+    }
+    
+    examen_complementario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**

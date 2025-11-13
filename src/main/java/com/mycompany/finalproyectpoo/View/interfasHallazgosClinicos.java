@@ -4,6 +4,15 @@
  */
 package com.mycompany.finalproyectpoo.View;
 
+import com.mycompany.finalproyectpoo.DAO.Conexion;
+import com.mycompany.finalproyectpoo.Models.ExamenFisico;
+import com.mycompany.finalproyectpoo.Models.HallazgosClinicos;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author manue
@@ -45,22 +54,22 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        PielPelaje = new javax.swing.JComboBox<>();
-        GlangleosLinfatico = new javax.swing.JComboBox<>();
-        Digestivo = new javax.swing.JComboBox<>();
-        Respiratorio = new javax.swing.JComboBox<>();
-        Endocrino = new javax.swing.JComboBox<>();
-        Nervioso = new javax.swing.JComboBox<>();
-        Urinario = new javax.swing.JComboBox<>();
+        ComboPielPelaje = new javax.swing.JComboBox<>();
+        ComboGlangleosLinfatico = new javax.swing.JComboBox<>();
+        ComboDigestivo = new javax.swing.JComboBox<>();
+        ComboRespiratorio = new javax.swing.JComboBox<>();
+        ComboEndocrino = new javax.swing.JComboBox<>();
+        ComboNervioso = new javax.swing.JComboBox<>();
+        ComboUrinario = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        Reproductivo = new javax.swing.JComboBox<>();
-        MusculoEsqueletico = new javax.swing.JComboBox<>();
-        PalpacionRectal = new javax.swing.JComboBox<>();
-        HallazgosRelevantes = new javax.swing.JComboBox<>();
+        ComboReproductivo = new javax.swing.JComboBox<>();
+        ComboMusculoEsqueletico = new javax.swing.JComboBox<>();
+        ComboPalpacionRectal = new javax.swing.JComboBox<>();
+        ComboHallazgosRelevantes = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,41 +107,41 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         jLabel1.setText("Hallazgos Clinicos");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 300, 40));
 
-        PielPelaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Alopecia (pérdida de pelo)", "Presencia de pulgas o garrapatas" }));
-        PielPelaje.addActionListener(new java.awt.event.ActionListener() {
+        ComboPielPelaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Alopecia (pérdida de pelo)", "Presencia de pulgas o garrapatas" }));
+        ComboPielPelaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PielPelajeActionPerformed(evt);
+                ComboPielPelajeActionPerformed(evt);
             }
         });
-        getContentPane().add(PielPelaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, -1));
+        getContentPane().add(ComboPielPelaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, -1));
 
-        GlangleosLinfatico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normales", "Aumentados de tamaño", "Dolorosos a la palpación" }));
-        getContentPane().add(GlangleosLinfatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 110, -1));
+        ComboGlangleosLinfatico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normales", "Aumentados de tamaño", "Dolorosos a la palpación" }));
+        getContentPane().add(ComboGlangleosLinfatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 110, -1));
 
-        Digestivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Vómitos", "Diarrea" }));
-        Digestivo.addActionListener(new java.awt.event.ActionListener() {
+        ComboDigestivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Vómitos", "Diarrea" }));
+        ComboDigestivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DigestivoActionPerformed(evt);
+                ComboDigestivoActionPerformed(evt);
             }
         });
-        getContentPane().add(Digestivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 110, -1));
+        getContentPane().add(ComboDigestivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 110, -1));
 
-        Respiratorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Tos", "Dificultad respiratoria (disnea)" }));
-        Respiratorio.addActionListener(new java.awt.event.ActionListener() {
+        ComboRespiratorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Tos", "Dificultad respiratoria (disnea)" }));
+        ComboRespiratorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RespiratorioActionPerformed(evt);
+                ComboRespiratorioActionPerformed(evt);
             }
         });
-        getContentPane().add(Respiratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
+        getContentPane().add(ComboRespiratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
 
-        Endocrino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Polidipsia / Poliuria (mucha sed o micción)", "Pérdida de peso sin causa aparente" }));
-        getContentPane().add(Endocrino, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 110, -1));
+        ComboEndocrino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Polidipsia / Poliuria (mucha sed o micción)", "Pérdida de peso sin causa aparente" }));
+        getContentPane().add(ComboEndocrino, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 110, -1));
 
-        Nervioso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Convulsiones", "Descoordinación (ataxia)" }));
-        getContentPane().add(Nervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 110, -1));
+        ComboNervioso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Convulsiones", "Descoordinación (ataxia)" }));
+        getContentPane().add(ComboNervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 110, -1));
 
-        Urinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dificultad para orinar (disuria)", "Orina con sangre (hematuria)" }));
-        getContentPane().add(Urinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
+        ComboUrinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dificultad para orinar (disuria)", "Orina con sangre (hematuria)" }));
+        getContentPane().add(ComboUrinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
 
         jButton1.setText("Guardar y Continuar");
         jButton1.setMaximumSize(new java.awt.Dimension(72, 22));
@@ -160,17 +169,17 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         jLabel12.setText("Hallazgo Relevantes:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
-        Reproductivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Secreción vaginal o prepucial", "Inflamación genital o testicular" }));
-        getContentPane().add(Reproductivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 100, -1));
+        ComboReproductivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Secreción vaginal o prepucial", "Inflamación genital o testicular" }));
+        getContentPane().add(ComboReproductivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 100, -1));
 
-        MusculoEsqueletico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Cojera", "Dolor articular" }));
-        getContentPane().add(MusculoEsqueletico, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 100, -1));
+        ComboMusculoEsqueletico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Cojera", "Dolor articular" }));
+        getContentPane().add(ComboMusculoEsqueletico, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 100, -1));
 
-        PalpacionRectal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dolor a la palpación", "Masas o engrosamientos detectables" }));
-        getContentPane().add(PalpacionRectal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 100, -1));
+        ComboPalpacionRectal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dolor a la palpación", "Masas o engrosamientos detectables" }));
+        getContentPane().add(ComboPalpacionRectal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 100, -1));
 
-        HallazgosRelevantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin hallazgos relevantes", "Lesiones múltiples", "Signos de dolor o malestar general" }));
-        getContentPane().add(HallazgosRelevantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 100, -1));
+        ComboHallazgosRelevantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin hallazgos relevantes", "Lesiones múltiples", "Signos de dolor o malestar general" }));
+        getContentPane().add(ComboHallazgosRelevantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 100, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
@@ -178,22 +187,72 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PielPelajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PielPelajeActionPerformed
+    private void ComboPielPelajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboPielPelajeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PielPelajeActionPerformed
+    }//GEN-LAST:event_ComboPielPelajeActionPerformed
 
-    private void DigestivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DigestivoActionPerformed
+    private void ComboDigestivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboDigestivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DigestivoActionPerformed
+    }//GEN-LAST:event_ComboDigestivoActionPerformed
 
-    private void RespiratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RespiratorioActionPerformed
+    private void ComboRespiratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboRespiratorioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RespiratorioActionPerformed
+    }//GEN-LAST:event_ComboRespiratorioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String PielPelaje = ComboPielPelaje.getSelectedItem().toString();
+        String GlangleosLinfatico = ComboGlangleosLinfatico.getSelectedItem().toString();
+        String Digestivo = ComboDigestivo.getSelectedItem().toString();
+        String Respiratorio = ComboRespiratorio.getSelectedItem().toString();
+        String Endocrino = ComboEndocrino.getSelectedItem().toString();
+        String Nervioso = ComboNervioso.getSelectedItem().toString();
+        String urinario = ComboUrinario.getSelectedItem().toString();//opcion seleccionada del combo box;
+        String Reproductivo = ComboReproductivo.getSelectedItem().toString();
+        String MusculoEsque = ComboMusculoEsqueletico.getSelectedItem().toString();
+        String PalpacionRec = ComboPalpacionRectal.getSelectedItem().toString();
+        String HallazgosRele = ComboHallazgosRelevantes.getSelectedItem().toString();
+        //Ahora vamos a crear el objeto para hacer la consulta
+        
+        HallazgosClinicos hc = new HallazgosClinicos(PielPelaje,GlangleosLinfatico,Digestivo,Respiratorio,
+                Endocrino,Nervioso ,urinario,Reproductivo,MusculoEsque,PalpacionRec,HallazgosRele, this.id_historia);
+       
+        try (Connection con = Conexion.conectar()) {
+            String sql = "INSERT INTO hallazgos_clinicos (piel_pelage, gangleos_linfatico,"
+                    + " digestivo, respiratorio, endocrino, nervioso, urinario, reproductivo,"
+                    + " musculo_esqueletico, palpacion_rectal,hallazgos_relevantes, id_historia) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            
+            // En este caso se hace el statement para poder imprimir por pantalla el id de la mascota
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
+            ps.setString(1,hc.getPiel_pelage());
+            ps.setString(2,hc.getGangleos_linfatico());
+            ps.setString(3,hc.getDigestivo());
+            ps.setString(4,hc.getRespiratorio());
+            ps.setString(5,hc.getEndocrino());
+            ps.setString(6,hc.getNervioso());
+            ps.setString(7,hc.getUrinario());
+            ps.setString(8,hc.getReproductivo());
+            ps.setString(9,hc.getMusculo_esqueletico());
+            ps.setString(10,hc.getPalpacion_rectal());
+            ps.setString(11,hc.getHallazgos_relevantes());
+            
+            ps.setInt(12,this.id_historia);
+        
+            //Hacemos esto para que se cree la siguiente ventana y que salga el mensaje de que se guardo en la base de datos 
+            int rowsInserted = ps.executeUpdate(); // guarda datos
+            if (rowsInserted > 0) { // sólo se abre si se guardó bien
+                examen_complementario complementarioframe = new examen_complementario(this.id_historia);
+                complementarioframe.setLocationRelativeTo(null); // centra el nuevo frame
+                complementarioframe.setVisible(true); // muestra la ventana
+                this.dispose(); // cierra el frame actual si ya no lo necesitas
+            }
+            
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+        }
         //Use esto de combo boxses etc
-        String Mucosa = PielPelaje.getSelectedItem().toString();//opcion seleccionada del combo box;
+       // String Mucosa = PielPelaje.getSelectedItem().toString();//opcion seleccionada del combo box;
       
 
     
@@ -225,17 +284,17 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Digestivo;
-    private javax.swing.JComboBox<String> Endocrino;
-    private javax.swing.JComboBox<String> GlangleosLinfatico;
-    private javax.swing.JComboBox<String> HallazgosRelevantes;
-    private javax.swing.JComboBox<String> MusculoEsqueletico;
-    private javax.swing.JComboBox<String> Nervioso;
-    private javax.swing.JComboBox<String> PalpacionRectal;
-    private javax.swing.JComboBox<String> PielPelaje;
-    private javax.swing.JComboBox<String> Reproductivo;
-    private javax.swing.JComboBox<String> Respiratorio;
-    private javax.swing.JComboBox<String> Urinario;
+    private javax.swing.JComboBox<String> ComboDigestivo;
+    private javax.swing.JComboBox<String> ComboEndocrino;
+    private javax.swing.JComboBox<String> ComboGlangleosLinfatico;
+    private javax.swing.JComboBox<String> ComboHallazgosRelevantes;
+    private javax.swing.JComboBox<String> ComboMusculoEsqueletico;
+    private javax.swing.JComboBox<String> ComboNervioso;
+    private javax.swing.JComboBox<String> ComboPalpacionRectal;
+    private javax.swing.JComboBox<String> ComboPielPelaje;
+    private javax.swing.JComboBox<String> ComboReproductivo;
+    private javax.swing.JComboBox<String> ComboRespiratorio;
+    private javax.swing.JComboBox<String> ComboUrinario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

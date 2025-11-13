@@ -46,6 +46,24 @@ public class HallazgosClinicos {
         this.id_historia = id_historia;
     }
 
+    public HallazgosClinicos(String piel_pelage, String gangleos_linfatico, String digestivo, String respiratorio,
+                         String endocrino, String nervioso, String urinario, String reproductivo,
+                         String musculo_esqueletico, String palpacion_rectal, String hallazgos_relevantes, int id_historia) {
+
+    this.piel_pelage = piel_pelage;
+    this.gangleos_linfatico = gangleos_linfatico;
+    this.digestivo = digestivo;
+    this.respiratorio = respiratorio;
+    this.endocrino = endocrino;
+    this.nervioso = nervioso;
+    this.urinario = urinario;
+    this.reproductivo = reproductivo;
+    this.musculo_esqueletico = musculo_esqueletico;
+    this.palpacion_rectal = palpacion_rectal;
+    this.hallazgos_relevantes = hallazgos_relevantes;
+    this.id_historia = id_historia;
+    }
+
     public void setId_hallazgo(int id_hallazgo) {
         this.id_hallazgo = id_hallazgo;
     }
@@ -82,8 +100,8 @@ public class HallazgosClinicos {
         this.reproductivo = reproductivo;
     }
 
-    public void setMusulo_esqueletico(String musulo_esqueletico) {
-        this.musculo_esqueletico = musulo_esqueletico;
+    public void setMusculo_esqueletico(String musculo_esqueletico) {
+        this.musculo_esqueletico = musculo_esqueletico;
     }
 
     public void setPalpacion_rectal(String palpacion_rectal) {
@@ -134,7 +152,7 @@ public class HallazgosClinicos {
         return reproductivo;
     }
 
-    public String getMusulo_esqueletico() {
+    public String getMusculo_esqueletico() {
         return musculo_esqueletico;
     }
 
@@ -158,7 +176,7 @@ public class HallazgosClinicos {
           ", piel_pelage=" + piel_pelage + ", gangleos_linfatico=" +
           gangleos_linfatico + ", digestivo=" + digestivo + ", respiratorio=" + 
           respiratorio + ", endocrino=" + endocrino + ", nervioso=" + nervioso + 
-          ", urinario=" + urinario + ", reproductivo=" + reproductivo + ", musulo_esqueletico=" + 
+          ", urinario=" + urinario + ", reproductivo=" + reproductivo + ", musculo_esqueletico=" + 
           musculo_esqueletico + ", palpacion_rectal=" + palpacion_rectal + ", hallazgos_relevantes=" + 
           hallazgos_relevantes + ", id_historia=" + id_historia + '}';
     }
