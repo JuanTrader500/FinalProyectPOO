@@ -241,12 +241,11 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
             //Hacemos esto para que se cree la siguiente ventana y que salga el mensaje de que se guardo en la base de datos 
             int rowsInserted = ps.executeUpdate(); // guarda datos
             if (rowsInserted > 0) { // sólo se abre si se guardó bien
-                examen_complementario complementarioframe = new examen_complementario(this.id_historia);
-                complementarioframe.setLocationRelativeTo(null); // centra el nuevo frame
-                complementarioframe.setVisible(true); // muestra la ventana
+                examen_complementario complementarioFrame = new examen_complementario(this.id_historia);
+                complementarioFrame.setLocationRelativeTo(null); // centra el nuevo frame
+                complementarioFrame.setVisible(true); // muestra la ventana
                 this.dispose(); // cierra el frame actual si ya no lo necesitas
-            }
-            
+            }    
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());

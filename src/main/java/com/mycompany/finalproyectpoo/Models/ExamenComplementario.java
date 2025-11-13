@@ -4,6 +4,9 @@
  */
 package com.mycompany.finalproyectpoo.Models;
 
+import java.sql.Date;
+
+
 /**
  *
  * @author manue
@@ -11,12 +14,12 @@ package com.mycompany.finalproyectpoo.Models;
 public class ExamenComplementario {
     private int id_examen_complementario;
     private String tipo_examen;
-    private String fecha_examen;
+    private Date fecha_examen;
     private String resultado;
     private String observacion;
     private int id_historia;
 
-    public ExamenComplementario(int id_examen_complementario, String tipo_examen, String fecha_examen, 
+    public ExamenComplementario(int id_examen_complementario, String tipo_examen, Date fecha_examen, 
             String resultado, String observacion, int id_historia) {
         this.id_examen_complementario = id_examen_complementario;
         this.tipo_examen = tipo_examen;
@@ -26,14 +29,14 @@ public class ExamenComplementario {
         this.id_historia = id_historia;
     }
   
-    public ExamenComplementario(String tipo_examen, String fecha_examen, 
-            String resultado, String observacion, int id_historia) {
+    public ExamenComplementario(String tipo_examen, Date fecha_examen, String resultado, String observacion, int id_historia) {
         this.tipo_examen = tipo_examen;
         this.fecha_examen = fecha_examen;
         this.resultado = resultado;
         this.observacion = observacion;
         this.id_historia = id_historia;
     }
+
     
     //Se agregan los getters 
     public int getId_examen_complementario() {
@@ -44,7 +47,7 @@ public class ExamenComplementario {
         return tipo_examen;
     }
 
-    public String getFecha_examen() {
+    public Date getFecha_examen() {
         return fecha_examen;
     }
 
@@ -69,7 +72,7 @@ public class ExamenComplementario {
         this.tipo_examen = tipo_examen;
     }
 
-    public void setFecha_examen(String fecha_examen) {
+    public void setFecha_examen(Date fecha_examen) {
         this.fecha_examen = fecha_examen;
     }
 
@@ -92,5 +95,6 @@ public class ExamenComplementario {
                 + ", resultado=" + resultado + ", observacion=" + observacion 
                 + ", id_historia=" + id_historia + '}';
     }
+
     
 }

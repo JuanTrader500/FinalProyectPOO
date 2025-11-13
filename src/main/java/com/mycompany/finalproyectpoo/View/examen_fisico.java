@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.finalproyectpoo.View;
-
 import com.mycompany.finalproyectpoo.DAO.Conexion;
 import com.mycompany.finalproyectpoo.Models.ExamenFisico;
+import com.mycompany.finalproyectpoo.Models.HallazgosClinicos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
