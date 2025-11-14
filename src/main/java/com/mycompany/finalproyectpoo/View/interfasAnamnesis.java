@@ -144,7 +144,7 @@ public class interfasAnamnesis extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Dieta:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 50, 20));
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, -1, -1));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 100, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));

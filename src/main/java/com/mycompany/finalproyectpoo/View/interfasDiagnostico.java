@@ -7,6 +7,7 @@ import com.mycompany.finalproyectpoo.DAO.Conexion;
 import static com.mysql.cj.conf.PropertyKey.logger;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author manue
@@ -23,14 +24,8 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         this.id_historia = id_historia;
         initComponents();
     }
-    
-        
 
-    private interfasDiagnostico(String DiagnosticoPresuntivo, String DiagnosticoDefinitivo, String Evolucion, String Pronostico, String Tratamiento) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    interfasDiagnostico() {
+    private interfasDiagnostico() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -114,17 +109,22 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         String Tratamiento = txtTratamiento.getText();
        
         
-
-        interfasDiagnostico dig = new interfasDiagnostico (DiagnosticoPresuntivo, 
-            DiagnosticoDefinitivo, Evolucion,  Pronostico, 
-            Tratamiento);
         try (Connection con = Conexion.conectar()) {
             String sql = "INSERT INTO diagnostico (diagnostico_presuntivo, diagnostico_definitivo, evolucion,"
                     + " pronostico, tratamiento, id_historia) VALUES (?, ?, ?, ?, ?, ?)";
 
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Historia guardada correctamente:\n" + dig.toString());
-        } catch (SQLException ex) {
+    java.sql.PreparedStatement ps = con.prepareStatement(sql);
+    ps.setString(1, DiagnosticoPresuntivo);
+    ps.setString(2, DiagnosticoDefinitivo);
+    ps.setString(3, Evolucion);
+    ps.setString(4, Pronostico);
+    ps.setString(5, Tratamiento);
+    ps.setInt(6, id_historia);
+
+         ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Hitoria Clinica guardada correctamente ");}
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
