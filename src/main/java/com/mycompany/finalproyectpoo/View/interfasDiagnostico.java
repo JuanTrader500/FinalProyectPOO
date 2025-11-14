@@ -122,7 +122,7 @@ public class interfasDiagnostico extends javax.swing.JFrame {
     ps.setInt(6, id_historia);
 
          ps.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Hitoria Clinica guardada correctamente ");}
+            JOptionPane.showMessageDialog(this, "Historia Clinica guardada correctamente ");}
         catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
         }
