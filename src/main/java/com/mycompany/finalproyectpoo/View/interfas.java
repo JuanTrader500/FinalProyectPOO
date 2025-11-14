@@ -47,6 +47,8 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     areaContenido.setEditable(false);
     
     // 3. Generar el contenido del reporte
+    // En tu clase interfas.java, dentro del método mostrarReporteParaImprimir...
+
     StringBuilder sb = new StringBuilder();
 
     sb.append("====================================================\n");
@@ -56,92 +58,94 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     sb.append("\nFecha de Registro: ").append(reporte.getFechaRegistro());
 
     // --- DATOS VETERINARIO ---
-    sb.append("\n\n--- 👨‍⚕️ VETERINARIO ---\n");
+    sb.append("\n\n--- ️VETERINARIO ---\n");
     if (reporte.getVeterinario() != null) {
-        // Usando la clase Veterinario, que tiene 'nombre_vet'
-        sb.append("Veterinario: ").append(reporte.getVeterinario().getNombre()).append("\n");
+        sb.append("Veterinario: ").append(reporte.getVeterinario().getNombre()).append("\n"); // Asumiendo que el setter es setNombre()
     } else { sb.append("Datos no disponibles.\n"); }
 
 
     // --- DATOS PROPIETARIO ---
-    sb.append("\n\n--- 👤 PROPIETARIO ---\n");
+    sb.append("\n\n--- PROPIETARIO ---\n");
     if (reporte.getPropietario() != null) {
         sb.append("Nombre: ").append(reporte.getPropietario().getNombre()).append("\n");
         sb.append("Teléfono: ").append(reporte.getPropietario().getTelefono()).append("\n");
-        sb.append("Gmail: ").append(reporte.getPropietario().getGmail()).append("\n"); // Campo de la tabla propietario
+        sb.append("Gmail: ").append(reporte.getPropietario().getGmail()).append("\n"); 
         sb.append("Dirección: ").append(reporte.getPropietario().getDireccion()).append("\n");
     } else { sb.append("Datos no disponibles.\n"); }
 
     // --- DATOS MASCOTA ---
-    sb.append("\n--- 🐾 MASCOTA ---\n");
+    sb.append("\n--- MASCOTA ---\n");
     if (reporte.getMascota() != null) {
         sb.append("Nombre: ").append(reporte.getMascota().getNombre()).append("\n");
         sb.append("Especie: ").append(reporte.getMascota().getEspecie()).append("\n");
         sb.append("Raza: ").append(reporte.getMascota().getRaza()).append("\n");
-        sb.append("Sexo: ").append(reporte.getMascota().getSexo()).append("\n"); // Campo de la tabla mascota
-        sb.append("Edad: ").append(reporte.getMascota().getEdad()).append(" años\n"); // Campo de la tabla mascota
+        sb.append("Sexo: ").append(reporte.getMascota().getSexo()).append("\n"); 
+        sb.append("Edad: ").append(reporte.getMascota().getEdad()).append(" años\n"); 
         sb.append("Peso: ").append(reporte.getMascota().getPeso()).append(" kg\n");
-        sb.append("Color: ").append(reporte.getMascota().getColor()).append("\n"); // Campo de la tabla mascota
+        sb.append("Color: ").append(reporte.getMascota().getColor()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
     // --- ANAMNESIS ---
-    sb.append("\n--- 📝 ANAMNESIS ---\n");
+    sb.append("\n--- ANAMNESIS ---\n");
     if (reporte.getAnamnesis() != null) {
         sb.append("Motivo de Consulta: ").append(reporte.getAnamnesis().getMotivo_consulta()).append("\n");
         sb.append("Dieta: ").append(reporte.getAnamnesis().getDieta()).append("\n");
         sb.append("Preexistencias: ").append(reporte.getAnamnesis().getPreexistencia()).append("\n"); 
-        sb.append("Cirugías Previas: ").append(reporte.getAnamnesis().getCirugias_previas()).append("\n"); // Campo de la tabla anamnesis
-        sb.append("Esquema Vacunal: ").append(reporte.getAnamnesis().getEsquema_vacunal()).append("\n"); // Campo de la tabla anamnesis
-        sb.append("Última Desparasitación: ").append(reporte.getAnamnesis().getUltima_desparasitacion()).append("\n"); // Campo de la tabla anamnesis
-        sb.append("Tratamientos Recientes: ").append(reporte.getAnamnesis().getTratamientos_recientes()).append("\n"); // Campo de la tabla anamnesis
+        sb.append("Cirugías Previas: ").append(reporte.getAnamnesis().getCirugias_previas()).append("\n"); 
+        sb.append("Esquema Vacunal: ").append(reporte.getAnamnesis().getEsquema_vacunal()).append("\n"); 
+        sb.append("Última Desparasitación: ").append(reporte.getAnamnesis().getUltima_desparasitacion()).append("\n"); 
+        sb.append("Tratamientos Recientes: ").append(reporte.getAnamnesis().getTratamientos_recientes()).append("\n"); 
+        // ✅ CAMPOS NUEVOS AÑADIDOS
+        sb.append("Viajes Realizados: ").append(reporte.getAnamnesis().getViajes_realizados()).append("\n");
+        sb.append("Convivencia (Otros Animales): ").append(reporte.getAnamnesis().getConvivencia_animales()).append("\n");
     } else { sb.append("Datos no disponibles.\n"); }
 
     // --- EXAMEN FÍSICO ---
-    sb.append("\n--- 🌡️ EXAMEN FÍSICO ---\n");
+    sb.append("\n---️ EXAMEN FÍSICO ---\n");
     if (reporte.getExamenFisico() != null) {
-        sb.append("Temperatura: ").append(reporte.getExamenFisico().getTemperatura()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Frecuencia Respiratoria: ").append(reporte.getExamenFisico().getFrecuencia_respiratoria()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Frecuencia Cardiaca: ").append(reporte.getExamenFisico().getFrecuencia_cardiaca()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Condición Corporal: ").append(reporte.getExamenFisico().getCondicion_corporal()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Relleno Capilar: ").append(reporte.getExamenFisico().getRelleno_capilar()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Mucosas: ").append(reporte.getExamenFisico().getMucosas()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Deshidratación: ").append(reporte.getExamenFisico().getDeshidratacion()).append("\n"); // Campo de la tabla examen_fisico
-        sb.append("Observaciones (EF): ").append(reporte.getExamenFisico().getObservaciones()).append("\n"); // Campo de la tabla examen_fisico
+        sb.append("Temperatura: ").append(reporte.getExamenFisico().getTemperatura()).append("\n"); 
+        sb.append("Frecuencia Respiratoria: ").append(reporte.getExamenFisico().getFrecuencia_respiratoria()).append("\n"); 
+        sb.append("Frecuencia Cardiaca: ").append(reporte.getExamenFisico().getFrecuencia_cardiaca()).append("\n"); 
+        sb.append("Condición Corporal: ").append(reporte.getExamenFisico().getCondicion_corporal()).append("\n"); 
+        sb.append("Relleno Capilar: ").append(reporte.getExamenFisico().getRelleno_capilar()).append("\n"); 
+        sb.append("Pulso: ").append(reporte.getExamenFisico().getPulso()).append("\n"); // ✅ CAMPO NUEVO AÑADIDO
+        sb.append("Mucosas: ").append(reporte.getExamenFisico().getMucosas()).append("\n"); 
+        sb.append("Deshidratación: ").append(reporte.getExamenFisico().getDeshidratacion()).append("\n"); 
+        sb.append("Observaciones (EF): ").append(reporte.getExamenFisico().getObservaciones()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
     // --- HALLAZGOS CLÍNICOS ---
-    sb.append("\n--- 🔎 HALLAZGOS CLÍNICOS ---\n");
-    // Nota: Usé 'getHallazgosClinicos' en lugar de 'getHallasgos_clinicos' para seguir la convención.
+    sb.append("\n--- HALLAZGOS CLÍNICOS ---\n");
     if (reporte.getHallasgos_clinicos() != null) {
         sb.append("Piel/Pelaje: ").append(reporte.getHallasgos_clinicos().getPiel_pelage()).append("\n");
-        sb.append("Gangleos Linfáticos: ").append(reporte.getHallasgos_clinicos().getGangleos_linfatico()).append("\n"); // Campo de Hallazgos
+        sb.append("Gangleos Linfáticos: ").append(reporte.getHallasgos_clinicos().getGangleos_linfatico()).append("\n"); 
         sb.append("Digestivo: ").append(reporte.getHallasgos_clinicos().getDigestivo()).append("\n");
-        sb.append("Respiratorio: ").append(reporte.getHallasgos_clinicos().getRespiratorio()).append("\n"); // Campo de Hallazgos
-        sb.append("Endocrino: ").append(reporte.getHallasgos_clinicos().getEndocrino()).append("\n"); // Campo de Hallazgos
-        sb.append("Nervioso: ").append(reporte.getHallasgos_clinicos().getNervioso()).append("\n"); // Campo de Hallazgos
-        sb.append("Urinario: ").append(reporte.getHallasgos_clinicos().getUrinario()).append("\n"); // Campo de Hallazgos
-        sb.append("Reproductivo: ").append(reporte.getHallasgos_clinicos().getReproductivo()).append("\n"); // Campo de Hallazgos
-        sb.append("Músculo Esquelético: ").append(reporte.getHallasgos_clinicos().getMusculo_esqueletico()).append("\n"); // Campo de Hallazgos
-        sb.append("Palpación Rectal: ").append(reporte.getHallasgos_clinicos().getPalpacion_rectal()).append("\n"); // Campo de Hallazgos
-        sb.append("Hallazgos Relevantes: ").append(reporte.getHallasgos_clinicos().getHallazgos_relevantes()).append("\n"); // Campo de Hallazgos
+        sb.append("Respiratorio: ").append(reporte.getHallasgos_clinicos().getRespiratorio()).append("\n"); 
+        sb.append("Endocrino: ").append(reporte.getHallasgos_clinicos().getEndocrino()).append("\n"); 
+        sb.append("Nervioso: ").append(reporte.getHallasgos_clinicos().getNervioso()).append("\n"); 
+        sb.append("Urinario: ").append(reporte.getHallasgos_clinicos().getUrinario()).append("\n"); 
+        sb.append("Reproductivo: ").append(reporte.getHallasgos_clinicos().getReproductivo()).append("\n"); 
+        sb.append("Músculo Esquelético: ").append(reporte.getHallasgos_clinicos().getMusculo_esqueletico()).append("\n"); 
+        sb.append("Palpación Rectal: ").append(reporte.getHallasgos_clinicos().getPalpacion_rectal()).append("\n"); 
+        sb.append("Hallazgos Relevantes: ").append(reporte.getHallasgos_clinicos().getHallazgos_relevantes()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
-    // --- EXAMEN COMPLEMENTARIO (Manejo 1:1) ---
-    sb.append("\n--- 🧪 EXAMEN COMPLEMENTARIO ---\n");
+    // --- EXAMEN COMPLEMENTARIO ---
+    sb.append("\n--- EXAMEN COMPLEMENTARIO ---\n");
     if (reporte.getExamenComplementario() != null) {
-        sb.append("Tipo de Examen: ").append(reporte.getExamenComplementario().getTipo_examen()).append("\n"); // Campo de Examen Complementario
-        sb.append("Fecha del Examen: ").append(reporte.getExamenComplementario().getFecha_examen()).append("\n"); // Campo de Examen Complementario
-        sb.append("Resultado: ").append(reporte.getExamenComplementario().getResultado()).append("\n"); // Campo de Examen Complementario
-        sb.append("Observación: ").append(reporte.getExamenComplementario().getObservacion()).append("\n"); // Campo de Examen Complementario
+        sb.append("Tipo de Examen: ").append(reporte.getExamenComplementario().getTipo_examen()).append("\n"); 
+        sb.append("Fecha del Examen: ").append(reporte.getExamenComplementario().getFecha_examen()).append("\n"); 
+        sb.append("Resultado: ").append(reporte.getExamenComplementario().getResultado()).append("\n"); 
+        sb.append("Observación: ").append(reporte.getExamenComplementario().getObservacion()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
     // --- DIAGNÓSTICO ---
-    sb.append("\n--- 🩺 DIAGNÓSTICO ---\n");
+    sb.append("\n--- DIAGNÓSTICO ---\n");
     if (reporte.getDiagnostico() != null) {
-        // Nota: Usé 'getDiagnostico_presuntivo' y 'getDiagnostico_definitivo'
         sb.append("Diagnóstico Presuntivo: ").append(reporte.getDiagnostico().getDiagnstico_presuntivo()).append("\n"); 
-        sb.append("Diagnóstico Definitivo: ").append(reporte.getDiagnostico().getDiagnostico_definitivo()).append("\n"); // Campo de la tabla diagnostico
-        sb.append("Pronóstico: ").append(reporte.getDiagnostico().getPronostico()).append("\n"); // Campo de la tabla diagnostico
+        sb.append("Diagnóstico Definitivo: ").append(reporte.getDiagnostico().getDiagnostico_definitivo()).append("\n"); 
+        sb.append("Evolución: ").append(reporte.getDiagnostico().getEvolucion()).append("\n"); // ✅ CAMPO NUEVO AÑADIDO
+        sb.append("Pronóstico: ").append(reporte.getDiagnostico().getPronostico()).append("\n"); 
         sb.append("Tratamiento: ").append(reporte.getDiagnostico().getTratamiento()).append("\n");
     } else { sb.append("Datos no disponibles.\n"); }
 

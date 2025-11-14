@@ -78,94 +78,107 @@ public class ConexionHistoria {
         try (ResultSet rs = stmt.executeQuery()) {
             if (rs.next()) {
                 reporte = new ImprimirHistoriaClinica();
-                
+
                 // 1. Mapear Datos Base (Historia Clínica)
                 reporte.setIdHistoria(rs.getInt("id_historia"));
                 reporte.setFechaRegistro(rs.getString("fecha"));
-                
+
                 // 2. Mapear Propietario
                 Propietario p = new Propietario();
-                p.setId(rs.getInt("id")); // ✅ CORREGIDO (Debe coincidir con p.id)
+                p.setId(rs.getInt("id")); 
                 p.setNombre(rs.getString("p_nombre"));
                 p.setTelefono(rs.getString("telefono"));
                 p.setGmail(rs.getString("gmail"));
                 p.setDireccion(rs.getString("direccion"));
                 reporte.setPropietario(p);
-                
-                // 3. Mapear Mascota
+
+                // 3. Mapear Mascota (COMPLETO)
                 Mascota m = new Mascota();
                 m.setId_mascota(rs.getInt("id_mascota"));
                 m.setNombre(rs.getString("m_nombre"));
-                // ... (resto de setters de Mascota)
+                m.setEspecie(rs.getString("especie")); // ✅ LÍNEA AÑADIDA
+                m.setRaza(rs.getString("raza")); // ✅ LÍNEA AÑADIDA
+                m.setSexo(rs.getString("sexo")); // ✅ LÍNEA AÑADIDA
+                m.setEdad(rs.getInt("edad")); // ✅ LÍNEA AÑADIDA
+                m.setPeso(rs.getDouble("peso")); // ✅ LÍNEA AÑADIDA
                 m.setColor(rs.getString("color"));
-                // Asignar el ID del propietario (que ya seleccionamos como "id")
-                // Asumiendo que m.setPropietario(int) existe
                 m.setPropietario(rs.getInt("id")); 
                 reporte.setMascota(m);
-                
+
                 // 4. Mapear Veterinario
                 Veterinario v = new Veterinario();
                 v.setId_veterinario(rs.getInt("id_veterinario"));
                 v.setNombre(rs.getString("nombre_vet"));
                 reporte.setVeterinario(v);
-                
-                // 5. Mapear Anamnesis
+
+                // 5. Mapear Anamnesis (COMPLETO)
                 Anamnesis a = new Anamnesis();
                 a.setId_anamnesis(rs.getInt("id_anamnesis"));
                 a.setDieta(rs.getString("dieta"));
-                a.setPreexistencia(rs.getString("preexistencia")); // ✅ CORREGIDO (Singular)
+                a.setPreexistencia(rs.getString("preexistencia")); 
                 a.setCirugias_previas(rs.getString("cirugias_previas"));
                 a.setEsquema_vacunal(rs.getString("esquema_vacunal"));
                 a.setUltima_desparasitacion(rs.getDate("ultima_desparasitacion"));
                 a.setTratamientos_recientes(rs.getString("tratamientos_recientes"));
-                // Mapeo de campos nuevos (Asumiendo que los setters existen)
                 a.setViajes_realizados(rs.getString("viajes_realizados"));
                 a.setConvivencia_animales(rs.getString("convivencia_animales"));
                 a.setMotivo_consulta(rs.getString("motivo_consulta"));
                 a.setId_historia(rs.getInt("id_historia")); 
                 reporte.setAnamnesis(a);
-                
-                // 6. Mapear Examen Físico
+
+                // 6. Mapear Examen Físico (COMPLETO)
                 ExamenFisico ef = new ExamenFisico();
                 ef.setId_examen_fisico(rs.getInt("id_examen_fisico"));
                 ef.setTemperatura(rs.getString("temperatura"));
-                ef.setFrecuencia_respiratoria(rs.getString("frecuencia_respiratoria")); // ✅ CORREGIDO
-                ef.setFrecuencia_cardiaca(rs.getString("frecuencia_cardiaca")); // ✅ CORREGIDO
+                ef.setFrecuencia_respiratoria(rs.getString("frecuencia_respiratoria"));
+                ef.setFrecuencia_cardiaca(rs.getString("frecuencia_cardiaca"));
                 ef.setCondicion_corporal(rs.getString("condicion_corporal"));
                 ef.setRelleno_capilar(rs.getString("relleno_capilar"));
-                ef.setPulso(rs.getString("pulso")); // Mapeo de campo nuevo
+                ef.setPulso(rs.getString("pulso")); 
                 ef.setMucosas(rs.getString("mucosas"));
                 ef.setDeshidratacion(rs.getString("deshidratacion"));
                 ef.setObservaciones(rs.getString("ef_observaciones"));
                 ef.setId_historia(rs.getInt("id_historia"));
                 reporte.setExamenFisico(ef);
 
-                // 7. Mapear Diagnóstico
+                // 7. Mapear Diagnóstico (COMPLETO)
                 Diagnostico d = new Diagnostico();
                 d.setId_diagnostico(rs.getInt("id_diagnostico"));
                 d.setDiagnostico_presuntivo(rs.getString("presuntivo"));
                 d.setDiagnostico_definitivo(rs.getString("definitivo"));
-                d.setEvolucion(rs.getString("evolucion")); // Mapeo de campo nuevo
+                d.setEvolucion(rs.getString("evolucion")); 
                 d.setPronostico(rs.getString("pronostico"));
                 d.setTratamiento(rs.getString("tratamiento"));
                 d.setId_historia(rs.getInt("id_historia"));
                 reporte.setDiagnostico(d);
-                
-                // 8. Mapear Hallazgos Clínicos
+
+                // 8. Mapear Hallazgos Clínicos (COMPLETO)
                 HallazgosClinicos h = new HallazgosClinicos();
-                h.setId_hallazgo(rs.getInt("id_hallazgos")); // ✅ CORREGIDO (Debe ser plural "id_hallazgos")
+                h.setId_hallazgo(rs.getInt("id_hallazgos")); 
                 h.setPiel_pelage(rs.getString("piel_pelage"));
-                // ... (resto de setters de Hallazgos)
+                h.setGangleos_linfatico(rs.getString("gangleos_linfatico")); // ✅ LÍNEA AÑADIDA
+                h.setDigestivo(rs.getString("digestivo")); // ✅ LÍNEA AÑADIDA
+                h.setRespiratorio(rs.getString("respiratorio")); // ✅ LÍNEA AÑADIDA
+                h.setEndocrino(rs.getString("endocrino")); // ✅ LÍNEA AÑADIDA
+                h.setNervioso(rs.getString("nervioso")); // ✅ LÍNEA AÑADIDA
+                h.setUrinario(rs.getString("urinario")); // ✅ LÍNEA AÑADIDA
+                h.setReproductivo(rs.getString("reproductivo")); // ✅ LÍNEA AÑADIDA
+                h.setMusculo_esqueletico(rs.getString("musculo_esqueletico")); // ✅ LÍNEA AÑADIDA
+                h.setPalpacion_rectal(rs.getString("palpacion_rectal")); // ✅ LÍNEA AÑADIDA
                 h.setHallazgos_relevantes(rs.getString("hallazgos_relevantes"));
                 h.setId_historia(rs.getInt("id_historia")); 
                 reporte.setHallasgos_clinicos(h);
-                
-                // 9. Mapear Examen Complementario
+
+                // 9. Mapear Examen Complementario (COMPLETO)
                 ExamenComplementario ec = new ExamenComplementario();
                 ec.setId_examen_complementario(rs.getInt("id_examen_complementario"));
-                // ... (resto de setters de Examen Complementario)
+                ec.setTipo_examen(rs.getString("tipo_examen")); // ✅ LÍNEA AÑADIDA
+                ec.setFecha_examen(rs.getDate("fecha_examen")); // ✅ LÍNEA AÑADIDA
+                ec.setResultado(rs.getString("resultado")); // ✅ LÍNEA AÑADIDA
+                ec.setObservacion(rs.getString("observacion")); // ✅ LÍNEA AÑADIDA
                 ec.setId_historia(rs.getInt("id_historia")); 
                 reporte.setExamenComplementario(ec);
+                
             }
         }
     } catch (SQLException e) {
