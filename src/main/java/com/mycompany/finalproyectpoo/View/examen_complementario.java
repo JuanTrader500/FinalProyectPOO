@@ -109,8 +109,8 @@ public class examen_complementario extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 160, 40));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 620, 420));
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
+        getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 0, 830, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

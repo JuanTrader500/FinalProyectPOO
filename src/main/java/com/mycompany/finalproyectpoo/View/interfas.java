@@ -7,6 +7,7 @@ package com.mycompany.finalproyectpoo.View;
 import com.mycompany.finalproyectpoo.DAO.ConexionHistoria;
 import com.mycompany.finalproyectpoo.Models.ImprimirHistoriaClinica;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -28,31 +29,35 @@ public class interfas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-    // Dentro de la clase de tu JFrame, por ejemplo, SistemaVeterinariaJM.java
 
 public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
-    // Necesitas estos imports al inicio de tu clase JFrame:
-    // import javax.swing.*;
-    // import java.awt.*;
-    // import com.tuproyecto.modelos.ImprimirHistoriaClinica; 
-
+  
     // 1. Crear la nueva ventana o diálogo
     JDialog dialogoImpresion = new JDialog(this, "Reporte Historia Clínica #" + reporte.getIdHistoria(), true); 
     dialogoImpresion.setSize(800, 600);
-    dialogoImpresion.setLayout(new BorderLayout());
-
+    //dialogoImpresion.setLayout(new BorderLayout());
+    String rutaImagenFondo = "/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"; 
+    ImagePanel panelFondo = new ImagePanel(rutaImagenFondo); 
+    
+    dialogoImpresion.setContentPane(panelFondo); // 
+    
+    
     // 2. Crear el área de texto
     JTextArea areaContenido = new JTextArea();
     areaContenido.setEditable(false);
     
-    // 3. Generar el contenido del reporte
-    // En tu clase interfas.java, dentro del método mostrarReporteParaImprimir...
+    // ✅ MODIFICADO: Hacer el JTextArea transparente
+    areaContenido.setOpaque(false); 
+    areaContenido.setForeground(Color.BLACK);
 
+    
+    
+    // 3. Generar el contenido del reporte
+    
     StringBuilder sb = new StringBuilder();
 
     sb.append("====================================================\n");
-    sb.append("          HISTORIA CLÍNICA VETERINARIA\n");
+    sb.append("         HISTORIA CLÍNICA VETERINARIA J&M\n");
     sb.append("====================================================\n");
     sb.append("\nID Historia: ").append(reporte.getIdHistoria());
     sb.append("\nFecha de Registro: ").append(reporte.getFechaRegistro());
@@ -60,7 +65,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     // --- DATOS VETERINARIO ---
     sb.append("\n\n--- ️VETERINARIO ---\n");
     if (reporte.getVeterinario() != null) {
-        sb.append("Veterinario: ").append(reporte.getVeterinario().getNombre()).append("\n"); // Asumiendo que el setter es setNombre()
+        sb.append("Veterinario: ").append(reporte.getVeterinario().getNombre()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
 
@@ -95,7 +100,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
         sb.append("Esquema Vacunal: ").append(reporte.getAnamnesis().getEsquema_vacunal()).append("\n"); 
         sb.append("Última Desparasitación: ").append(reporte.getAnamnesis().getUltima_desparasitacion()).append("\n"); 
         sb.append("Tratamientos Recientes: ").append(reporte.getAnamnesis().getTratamientos_recientes()).append("\n"); 
-        // ✅ CAMPOS NUEVOS AÑADIDOS
+        
         sb.append("Viajes Realizados: ").append(reporte.getAnamnesis().getViajes_realizados()).append("\n");
         sb.append("Convivencia (Otros Animales): ").append(reporte.getAnamnesis().getConvivencia_animales()).append("\n");
     } else { sb.append("Datos no disponibles.\n"); }
@@ -108,7 +113,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
         sb.append("Frecuencia Cardiaca: ").append(reporte.getExamenFisico().getFrecuencia_cardiaca()).append("\n"); 
         sb.append("Condición Corporal: ").append(reporte.getExamenFisico().getCondicion_corporal()).append("\n"); 
         sb.append("Relleno Capilar: ").append(reporte.getExamenFisico().getRelleno_capilar()).append("\n"); 
-        sb.append("Pulso: ").append(reporte.getExamenFisico().getPulso()).append("\n"); // ✅ CAMPO NUEVO AÑADIDO
+        sb.append("Pulso: ").append(reporte.getExamenFisico().getPulso()).append("\n"); 
         sb.append("Mucosas: ").append(reporte.getExamenFisico().getMucosas()).append("\n"); 
         sb.append("Deshidratación: ").append(reporte.getExamenFisico().getDeshidratacion()).append("\n"); 
         sb.append("Observaciones (EF): ").append(reporte.getExamenFisico().getObservaciones()).append("\n"); 
@@ -144,7 +149,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     if (reporte.getDiagnostico() != null) {
         sb.append("Diagnóstico Presuntivo: ").append(reporte.getDiagnostico().getDiagnstico_presuntivo()).append("\n"); 
         sb.append("Diagnóstico Definitivo: ").append(reporte.getDiagnostico().getDiagnostico_definitivo()).append("\n"); 
-        sb.append("Evolución: ").append(reporte.getDiagnostico().getEvolucion()).append("\n"); // ✅ CAMPO NUEVO AÑADIDO
+        sb.append("Evolución: ").append(reporte.getDiagnostico().getEvolucion()).append("\n"); 
         sb.append("Pronóstico: ").append(reporte.getDiagnostico().getPronostico()).append("\n"); 
         sb.append("Tratamiento: ").append(reporte.getDiagnostico().getTratamiento()).append("\n");
     } else { sb.append("Datos no disponibles.\n"); }
@@ -154,8 +159,12 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     // 4. Agregar componentes a la ventana
     dialogoImpresion.add(new JScrollPane(areaContenido), BorderLayout.CENTER);
     
+    JScrollPane scrollPane = new JScrollPane(areaContenido);
+    scrollPane.setOpaque(false); // 
+    scrollPane.getViewport().setOpaque(false);
+    panelFondo.add(scrollPane, BorderLayout.CENTER);
     // 5. Agregar el botón de IMPRIMIR
-    JButton btnImprimir = new JButton("🖨️ Imprimir Reporte");
+    JButton btnImprimir = new JButton("️Imprimir Reporte");
     btnImprimir.addActionListener(e -> {
         try {
             // Llama a la función de impresión nativa de Java
@@ -309,8 +318,8 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 820, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

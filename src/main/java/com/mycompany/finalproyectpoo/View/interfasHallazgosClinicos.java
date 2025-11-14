@@ -181,8 +181,8 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         ComboHallazgosRelevantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin hallazgos relevantes", "Lesiones múltiples", "Signos de dolor o malestar general" }));
         getContentPane().add(ComboHallazgosRelevantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 100, -1));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 820, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

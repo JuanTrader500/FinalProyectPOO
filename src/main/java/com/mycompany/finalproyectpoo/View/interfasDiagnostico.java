@@ -109,8 +109,8 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-210, 0, 830, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

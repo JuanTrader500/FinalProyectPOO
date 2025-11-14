@@ -146,8 +146,8 @@ public class interfasAnamnesis extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 50, 20));
         getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 100, -1));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 820, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
