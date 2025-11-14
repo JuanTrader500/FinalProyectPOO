@@ -25,6 +25,10 @@ public class Propietario {
         this.direccion = direccion;
         this.nombre = nombre;
     }
+
+    public Propietario() {
+        
+    }
     
     //Generamos los setters de nuestra clase
     public void setId(int id) {

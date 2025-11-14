@@ -52,6 +52,10 @@ public class ExamenFisico {
         this.observaciones = observaciones;
         this.id_historia = id_historia;
     }
+
+    public ExamenFisico() {
+       
+    }
     
     //Se agregan los getters
     public int getId_examen_fisico() {

@@ -19,6 +19,10 @@ public class Veterinario {
         this.id_veterinario = id_veterinario;
         this.nombre = nombre;
     }
+
+    public Veterinario() {
+       
+    }
     //Se crean los setters de nuestra clase
     public void setId_veterinario(int id_veterinario) {
         this.id_veterinario = id_veterinario;

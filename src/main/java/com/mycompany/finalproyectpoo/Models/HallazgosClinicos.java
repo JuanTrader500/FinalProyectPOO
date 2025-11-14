@@ -64,6 +64,10 @@ public class HallazgosClinicos {
     this.id_historia = id_historia;
     }
 
+    public HallazgosClinicos() {
+         
+    }
+
     public void setId_hallazgo(int id_hallazgo) {
         this.id_hallazgo = id_hallazgo;
     }

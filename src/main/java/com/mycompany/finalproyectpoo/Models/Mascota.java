@@ -44,6 +44,10 @@ public class Mascota {
         this.color = color;
         this.id_propietario = id_propietario;
     }
+
+    public Mascota() {
+        
+    }
     
     
     //Generamos los setters de nuestra clase

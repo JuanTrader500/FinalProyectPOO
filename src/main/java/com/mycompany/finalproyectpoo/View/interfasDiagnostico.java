@@ -50,6 +50,7 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         txtEvolucion = new javax.swing.JTextField();
         txtPronostico = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,6 +80,12 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         jLabel8.setText("Pronostico:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 190, 20));
         getContentPane().add(txtTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 370, 30));
+
+        txtDiagnosticoPresuntivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDiagnosticoPresuntivoActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtDiagnosticoPresuntivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 370, 30));
         getContentPane().add(txtDiagnosticoDefinitivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 370, 30));
         getContentPane().add(txtEvolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 370, 30));
@@ -92,7 +99,15 @@ public class interfasDiagnostico extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 104, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 330, 110, 40));
+
+        jButton2.setText("Menu Prinsipal");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
@@ -128,6 +143,16 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void txtDiagnosticoPresuntivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiagnosticoPresuntivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDiagnosticoPresuntivoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+         dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,6 +180,7 @@ public class interfasDiagnostico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

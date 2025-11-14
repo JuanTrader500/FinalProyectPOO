@@ -37,6 +37,10 @@ public class ExamenComplementario {
         this.id_historia = id_historia;
     }
 
+    public ExamenComplementario() {
+       
+    }
+
     
     //Se agregan los getters 
     public int getId_examen_complementario() {
