@@ -4,6 +4,18 @@
  */
 package com.mycompany.finalproyectpoo.View;
 
+import com.mycompany.finalproyectpoo.DAO.Conexion;
+import com.mycompany.finalproyectpoo.Models.ExamenComplementario;
+import com.mycompany.finalproyectpoo.Models.HallazgosClinicos;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+import static com.mysql.cj.conf.PropertyKey.logger;
 /**
  *
  * @author juana
@@ -15,8 +27,14 @@ public class examen_complementario extends javax.swing.JFrame {
     /**
      * Creates new form examen_complementario
      */
-    public examen_complementario() {
+    private int id_historia;
+    public examen_complementario(int id_historia) {
+        this.id_historia = id_historia;
         initComponents();
+    }
+    
+    examen_complementario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -31,16 +49,15 @@ public class examen_complementario extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTipoExamen = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        DateFechaExamen = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtResultado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtObservacion = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
@@ -55,46 +72,42 @@ public class examen_complementario extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel2.setText("Tipo de examen:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 130, 20));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 130, -1));
+        getContentPane().add(txtTipoExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 130, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Fecha de examen:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 140, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, -1));
+        getContentPane().add(DateFechaExamen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Resultado:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 110, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtResultadoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 130, -1));
+        getContentPane().add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setText("Observacion:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, 110, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtObservacion.setColumns(20);
+        txtObservacion.setRows(5);
+        jScrollPane1.setViewportView(txtObservacion);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, 190, -1));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton1.setText("Guardar");
+        jButton1.setText("Guardar y Continuar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 90, 40));
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jButton2.setText("Continuar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 90, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 160, 40));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 620, 420));
@@ -102,12 +115,45 @@ public class examen_complementario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtResultadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+          String TipoExamen = txtTipoExamen.getText();
+          java.util.Date FechaExamen = DateFechaExamen.getDate();
+          java.sql.Date FechaExamenSql = new java.sql.Date(FechaExamen.getTime());
+          String Resultado = txtResultado.getText();
+          String Observacion = txtObservacion.getText();
+        //Ahora vamos a crear el objeto para hacer la consulta
+        ExamenComplementario ec = new ExamenComplementario (TipoExamen,FechaExamenSql,
+        Resultado,Observacion, this.id_historia);
+      
+        try (Connection con = Conexion.conectar()) {
+            String sql = "INSERT INTO examen_complementario (tipo_examen,fecha_examen, resultado,"
+                    + "observacion,id_historia) VALUES (?, ?, ?, ?, ?)";
+            
+            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+             ps.setString(1,ec.getTipo_examen());
+             ps.setDate(2,(java.sql.Date)ec.getFecha_examen());
+             ps.setString(3,ec.getResultado());
+             ps.setString(4,ec.getObservacion());
+             ps.setInt(5,this.id_historia);
+             
+  
+            int rowsInserted = ps.executeUpdate(); // guarda datos
+            if (rowsInserted > 0) { // sólo se abre si se guardó bien
+                interfasDiagnostico diagnosticoframe = new interfasDiagnostico(this.id_historia);
+                diagnosticoframe.setLocationRelativeTo(null); // centra el nuevo frame
+                diagnosticoframe.setVisible(true); // muestra la ventana
+                this.dispose(); // cierra el frame actual si ya no lo necesitas
+            }
+            
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -136,10 +182,9 @@ public class examen_complementario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateFechaExamen;
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -147,8 +192,8 @@ public class examen_complementario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea txtObservacion;
+    private javax.swing.JTextField txtResultado;
+    private javax.swing.JTextField txtTipoExamen;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,7 +53,6 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtfecha = new com.toedter.calendar.JDateChooser();
         txtid_mascota = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
@@ -91,14 +90,6 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
         });
         getContentPane().add(txtid_mascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 134, -1));
 
-        jButton1.setText("Continuar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 110, 34));
-
         jButton2.setText("Guardar y Continuar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,16 +111,6 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
     private void txtid_mascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtid_mascotaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtid_mascotaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
-        //interfasAnamnesis anam = new interfasAnamnesis();
-        //anam.setVisible(true);
-        
-       
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
@@ -199,7 +180,6 @@ public class interfasHistoriaClinica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;

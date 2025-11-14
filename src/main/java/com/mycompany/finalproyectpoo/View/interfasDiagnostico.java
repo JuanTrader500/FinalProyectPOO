@@ -7,6 +7,7 @@ import com.mycompany.finalproyectpoo.DAO.Conexion;
 import static com.mysql.cj.conf.PropertyKey.logger;
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 /**
  *
  * @author manue
@@ -18,11 +19,13 @@ public class interfasDiagnostico extends javax.swing.JFrame {
     /**
      * Creates new form Diagnostico
      */
-    public interfasDiagnostico() {
+    private int id_historia;
+    public interfasDiagnostico(int id_historia) {
+        this.id_historia = id_historia;
         initComponents();
     }
 
-    private interfasDiagnostico(String DiagnosticoPresuntivo, String DiagnosticoDefinitivo, String Evolucion, String Pronostico, String Tratamiento) {
+    private interfasDiagnostico() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -47,7 +50,6 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         txtEvolucion = new javax.swing.JTextField();
         txtPronostico = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,15 +92,7 @@ public class interfasDiagnostico extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 104, 34));
-
-        jButton2.setText("Continuar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 104, 34));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 104, 34));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
@@ -110,26 +104,29 @@ public class interfasDiagnostico extends javax.swing.JFrame {
 
         String DiagnosticoPresuntivo = txtDiagnosticoPresuntivo.getText();
         String DiagnosticoDefinitivo = txtDiagnosticoDefinitivo.getText();
-        String Evolucion = txtDiagnosticoPresuntivo.getText();
-        String Pronostico = txtEvolucion.getText();
-        String Tratamiento = txtPronostico.getText();
+        String Evolucion = txtEvolucion.getText();
+        String Pronostico = txtPronostico.getText();
+        String Tratamiento = txtTratamiento.getText();
+       
         
-
-        interfasDiagnostico dig = new interfasDiagnostico (DiagnosticoPresuntivo, 
-            DiagnosticoDefinitivo, Evolucion,  Pronostico, 
-            Tratamiento);
         try (Connection con = Conexion.conectar()) {
-            String sql = "INSERT INTO anamnesis (id_anamnesis, dieta, preexistencia, cirugiasPrevias, esquemaVacunal, ultimaDesparasitacion, tratamientosRecientes, viajesRealizados, convivenciaAnimales, motivoConsulta, id_historia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO diagnostico (diagnostico_presuntivo, diagnostico_definitivo, evolucion,"
+                    + " pronostico, tratamiento, id_historia) VALUES (?, ?, ?, ?, ?, ?)";
 
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Diagnostico guardado correctamente:\n" + dig.toString());
-        } catch (SQLException ex) {
+    java.sql.PreparedStatement ps = con.prepareStatement(sql);
+    ps.setString(1, DiagnosticoPresuntivo);
+    ps.setString(2, DiagnosticoDefinitivo);
+    ps.setString(3, Evolucion);
+    ps.setString(4, Pronostico);
+    ps.setString(5, Tratamiento);
+    ps.setInt(6, id_historia);
+
+         ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Historia Clinica guardada correctamente ");}
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,7 +155,6 @@ public class interfasDiagnostico extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
