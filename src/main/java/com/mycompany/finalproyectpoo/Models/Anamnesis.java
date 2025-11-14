@@ -58,11 +58,15 @@ public class Anamnesis {
     }
 
     public Anamnesis(String dieta, String preexistencia, String cirugiasPrevias, String esquemaVacunal, Date ultimaDesparasitacion, String tratamientosRecientes, String viajesRealizados, String convivenciaAnimales, String motivoConsulta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     public Anamnesis(String dieta, String preexistencia, String cirugiasPrevias, String esquemaVacunal, java.util.Date UltimaDesparasitacion, String tratamientosRecientes, String viajesRealizados, String convivenciaAnimales, String motivoConsulta, int id_historia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+    }
+
+    public Anamnesis() {
+      
     }
     
     //Se agregan los getters

@@ -38,6 +38,10 @@ public class Diagnostico {
         this.tratamiento = tratamiento;
         this.id_historia = id_historia;
     }
+
+    public Diagnostico() {
+       
+    }
  
     // Se agregan los getters
     public int getId_diagnostico() {
@@ -73,7 +77,7 @@ public class Diagnostico {
         this.id_diagnostico = id_diagnostico;
     }
 
-    public void setDiagnstico_presuntivo(String diagnstico_presuntivo) {
+    public void setDiagnostico_presuntivo(String diagnstico_presuntivo) {
         this.diagnstico_presuntivo = diagnstico_presuntivo;
     }
 

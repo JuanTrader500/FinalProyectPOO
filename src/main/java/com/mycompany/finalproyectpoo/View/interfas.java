@@ -4,6 +4,16 @@
  */
 package com.mycompany.finalproyectpoo.View;
 
+import com.mycompany.finalproyectpoo.DAO.ConexionHistoria;
+import com.mycompany.finalproyectpoo.Models.ImprimirHistoriaClinica;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author juana
@@ -19,6 +29,157 @@ public class interfas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+
+public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
+  
+    // 1. Crear la nueva ventana o diálogo
+    JDialog dialogoImpresion = new JDialog(this, "Reporte Historia Clínica #" + reporte.getIdHistoria(), true); 
+    dialogoImpresion.setSize(800, 600);
+    //dialogoImpresion.setLayout(new BorderLayout());
+    String rutaImagenFondo = "/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"; 
+    ImagePanel panelFondo = new ImagePanel(rutaImagenFondo); 
+    
+    dialogoImpresion.setContentPane(panelFondo); // 
+    
+    
+    // 2. Crear el área de texto
+    JTextArea areaContenido = new JTextArea();
+    areaContenido.setEditable(false);
+    
+    // ✅ MODIFICADO: Hacer el JTextArea transparente
+    areaContenido.setOpaque(false); 
+    areaContenido.setForeground(Color.BLACK);
+
+    
+    
+    // 3. Generar el contenido del reporte
+    
+    StringBuilder sb = new StringBuilder();
+
+    sb.append("====================================================\n");
+    sb.append("         HISTORIA CLÍNICA VETERINARIA J&M\n");
+    sb.append("====================================================\n");
+    sb.append("\nID Historia: ").append(reporte.getIdHistoria());
+    sb.append("\nFecha de Registro: ").append(reporte.getFechaRegistro());
+
+    // --- DATOS VETERINARIO ---
+    sb.append("\n\n--- ️VETERINARIO ---\n");
+    if (reporte.getVeterinario() != null) {
+        sb.append("Veterinario: ").append(reporte.getVeterinario().getNombre()).append("\n"); 
+    } else { sb.append("Datos no disponibles.\n"); }
+
+
+    // --- DATOS PROPIETARIO ---
+    sb.append("\n\n--- PROPIETARIO ---\n");
+    if (reporte.getPropietario() != null) {
+        sb.append("Nombre: ").append(reporte.getPropietario().getNombre()).append("\n");
+        sb.append("Teléfono: ").append(reporte.getPropietario().getTelefono()).append("\n");
+        sb.append("Gmail: ").append(reporte.getPropietario().getGmail()).append("\n"); 
+        sb.append("Dirección: ").append(reporte.getPropietario().getDireccion()).append("\n");
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    // --- DATOS MASCOTA ---
+    sb.append("\n--- MASCOTA ---\n");
+    if (reporte.getMascota() != null) {
+        sb.append("Nombre: ").append(reporte.getMascota().getNombre()).append("\n");
+        sb.append("Especie: ").append(reporte.getMascota().getEspecie()).append("\n");
+        sb.append("Raza: ").append(reporte.getMascota().getRaza()).append("\n");
+        sb.append("Sexo: ").append(reporte.getMascota().getSexo()).append("\n"); 
+        sb.append("Edad: ").append(reporte.getMascota().getEdad()).append(" años\n"); 
+        sb.append("Peso: ").append(reporte.getMascota().getPeso()).append(" kg\n");
+        sb.append("Color: ").append(reporte.getMascota().getColor()).append("\n"); 
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    // --- ANAMNESIS ---
+    sb.append("\n--- ANAMNESIS ---\n");
+    if (reporte.getAnamnesis() != null) {
+        sb.append("Motivo de Consulta: ").append(reporte.getAnamnesis().getMotivo_consulta()).append("\n");
+        sb.append("Dieta: ").append(reporte.getAnamnesis().getDieta()).append("\n");
+        sb.append("Preexistencias: ").append(reporte.getAnamnesis().getPreexistencia()).append("\n"); 
+        sb.append("Cirugías Previas: ").append(reporte.getAnamnesis().getCirugias_previas()).append("\n"); 
+        sb.append("Esquema Vacunal: ").append(reporte.getAnamnesis().getEsquema_vacunal()).append("\n"); 
+        sb.append("Última Desparasitación: ").append(reporte.getAnamnesis().getUltima_desparasitacion()).append("\n"); 
+        sb.append("Tratamientos Recientes: ").append(reporte.getAnamnesis().getTratamientos_recientes()).append("\n"); 
+        
+        sb.append("Viajes Realizados: ").append(reporte.getAnamnesis().getViajes_realizados()).append("\n");
+        sb.append("Convivencia (Otros Animales): ").append(reporte.getAnamnesis().getConvivencia_animales()).append("\n");
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    // --- EXAMEN FÍSICO ---
+    sb.append("\n---️ EXAMEN FÍSICO ---\n");
+    if (reporte.getExamenFisico() != null) {
+        sb.append("Temperatura: ").append(reporte.getExamenFisico().getTemperatura()).append("\n"); 
+        sb.append("Frecuencia Respiratoria: ").append(reporte.getExamenFisico().getFrecuencia_respiratoria()).append("\n"); 
+        sb.append("Frecuencia Cardiaca: ").append(reporte.getExamenFisico().getFrecuencia_cardiaca()).append("\n"); 
+        sb.append("Condición Corporal: ").append(reporte.getExamenFisico().getCondicion_corporal()).append("\n"); 
+        sb.append("Relleno Capilar: ").append(reporte.getExamenFisico().getRelleno_capilar()).append("\n"); 
+        sb.append("Pulso: ").append(reporte.getExamenFisico().getPulso()).append("\n"); 
+        sb.append("Mucosas: ").append(reporte.getExamenFisico().getMucosas()).append("\n"); 
+        sb.append("Deshidratación: ").append(reporte.getExamenFisico().getDeshidratacion()).append("\n"); 
+        sb.append("Observaciones (EF): ").append(reporte.getExamenFisico().getObservaciones()).append("\n"); 
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    // --- HALLAZGOS CLÍNICOS ---
+    sb.append("\n--- HALLAZGOS CLÍNICOS ---\n");
+    if (reporte.getHallasgos_clinicos() != null) {
+        sb.append("Piel/Pelaje: ").append(reporte.getHallasgos_clinicos().getPiel_pelage()).append("\n");
+        sb.append("Gangleos Linfáticos: ").append(reporte.getHallasgos_clinicos().getGangleos_linfatico()).append("\n"); 
+        sb.append("Digestivo: ").append(reporte.getHallasgos_clinicos().getDigestivo()).append("\n");
+        sb.append("Respiratorio: ").append(reporte.getHallasgos_clinicos().getRespiratorio()).append("\n"); 
+        sb.append("Endocrino: ").append(reporte.getHallasgos_clinicos().getEndocrino()).append("\n"); 
+        sb.append("Nervioso: ").append(reporte.getHallasgos_clinicos().getNervioso()).append("\n"); 
+        sb.append("Urinario: ").append(reporte.getHallasgos_clinicos().getUrinario()).append("\n"); 
+        sb.append("Reproductivo: ").append(reporte.getHallasgos_clinicos().getReproductivo()).append("\n"); 
+        sb.append("Músculo Esquelético: ").append(reporte.getHallasgos_clinicos().getMusculo_esqueletico()).append("\n"); 
+        sb.append("Palpación Rectal: ").append(reporte.getHallasgos_clinicos().getPalpacion_rectal()).append("\n"); 
+        sb.append("Hallazgos Relevantes: ").append(reporte.getHallasgos_clinicos().getHallazgos_relevantes()).append("\n"); 
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    // --- EXAMEN COMPLEMENTARIO ---
+    sb.append("\n--- EXAMEN COMPLEMENTARIO ---\n");
+    if (reporte.getExamenComplementario() != null) {
+        sb.append("Tipo de Examen: ").append(reporte.getExamenComplementario().getTipo_examen()).append("\n"); 
+        sb.append("Fecha del Examen: ").append(reporte.getExamenComplementario().getFecha_examen()).append("\n"); 
+        sb.append("Resultado: ").append(reporte.getExamenComplementario().getResultado()).append("\n"); 
+        sb.append("Observación: ").append(reporte.getExamenComplementario().getObservacion()).append("\n"); 
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    // --- DIAGNÓSTICO ---
+    sb.append("\n--- DIAGNÓSTICO ---\n");
+    if (reporte.getDiagnostico() != null) {
+        sb.append("Diagnóstico Presuntivo: ").append(reporte.getDiagnostico().getDiagnstico_presuntivo()).append("\n"); 
+        sb.append("Diagnóstico Definitivo: ").append(reporte.getDiagnostico().getDiagnostico_definitivo()).append("\n"); 
+        sb.append("Evolución: ").append(reporte.getDiagnostico().getEvolucion()).append("\n"); 
+        sb.append("Pronóstico: ").append(reporte.getDiagnostico().getPronostico()).append("\n"); 
+        sb.append("Tratamiento: ").append(reporte.getDiagnostico().getTratamiento()).append("\n");
+    } else { sb.append("Datos no disponibles.\n"); }
+
+    areaContenido.setText(sb.toString());
+
+    // 4. Agregar componentes a la ventana
+    dialogoImpresion.add(new JScrollPane(areaContenido), BorderLayout.CENTER);
+    
+    JScrollPane scrollPane = new JScrollPane(areaContenido);
+    scrollPane.setOpaque(false); // 
+    scrollPane.getViewport().setOpaque(false);
+    panelFondo.add(scrollPane, BorderLayout.CENTER);
+    // 5. Agregar el botón de IMPRIMIR
+    JButton btnImprimir = new JButton("️Imprimir Reporte");
+    btnImprimir.addActionListener(e -> {
+        try {
+            // Llama a la función de impresión nativa de Java
+            areaContenido.print(); 
+        } catch (java.awt.print.PrinterException ex) {
+            JOptionPane.showMessageDialog(dialogoImpresion, "Error al imprimir: " + ex.getMessage(), "Error de Impresión", JOptionPane.ERROR_MESSAGE);
+        }
+    });
+    
+    dialogoImpresion.add(btnImprimir, BorderLayout.SOUTH);
+    
+    // 6. Mostrar el diálogo
+    dialogoImpresion.setLocationRelativeTo(this);
+    dialogoImpresion.setVisible(true);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,7 +202,7 @@ public class interfas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        id_historia = new javax.swing.JTextField();
+        txtIdHistoria = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
@@ -141,12 +302,12 @@ public class interfas extends javax.swing.JFrame {
         jLabel6.setText("Buscar Historia.C");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 140, -1));
 
-        id_historia.addActionListener(new java.awt.event.ActionListener() {
+        txtIdHistoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                id_historiaActionPerformed(evt);
+                txtIdHistoriaActionPerformed(evt);
             }
         });
-        getContentPane().add(id_historia, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 130, -1));
+        getContentPane().add(txtIdHistoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 130, -1));
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton5.setText("Buscar id");
@@ -157,8 +318,8 @@ public class interfas extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/logo.png"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 420));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 820, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,7 +350,39 @@ public class interfas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        
+        try {
+        // 1. Obtener el ID ingresado por el usuario
+        String idText = txtIdHistoria.getText(); // Asumiendo que el campo de texto se llama 'txtIdHistoria'
+        
+        if (idText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, ingrese el ID de la historia.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int idHistoria = Integer.parseInt(idText);
+        
+        // 2. Llamar al DAO para obtener los datos
+        ConexionHistoria dao = new ConexionHistoria();
+        ImprimirHistoriaClinica reporte = dao.obtenerReporteCompleto(idHistoria);
+        
+        // 3. Evaluar el resultado de la búsqueda
+        if (reporte != null) {
+            // Éxito: Se encontró la historia. Pasamos al paso 2.
+            mostrarReporteParaImprimir(reporte); // Llamamos a la nueva función de impresión
+        } else {
+            // Error: No se encontró la historia
+            JOptionPane.showMessageDialog(this, "Historia Clínica con ID " + idHistoria + " no encontrada.", "Error de Búsqueda", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "El ID debe ser un número válido.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error al buscar la historia: " + ex.getMessage(), "Error del Sistema", JOptionPane.ERROR_MESSAGE);
+        ex.printStackTrace();
+    }
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -200,9 +393,9 @@ public class interfas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void id_historiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_historiaActionPerformed
+    private void txtIdHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdHistoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_id_historiaActionPerformed
+    }//GEN-LAST:event_txtIdHistoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,7 +425,6 @@ public class interfas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fondo;
-    private javax.swing.JTextField id_historia;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -246,5 +438,6 @@ public class interfas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txtIdHistoria;
     // End of variables declaration//GEN-END:variables
 }
