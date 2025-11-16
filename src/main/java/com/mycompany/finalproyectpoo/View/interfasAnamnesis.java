@@ -112,12 +112,12 @@ public class interfasAnamnesis extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Motivo Consulta:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, 140, 20));
-        getContentPane().add(txtCirugiasPrevias, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 80, 20));
-        getContentPane().add(txtPreexistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 80, 20));
-        getContentPane().add(txtEsquemaVacunal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 80, 20));
-        getContentPane().add(txtTratamientoReciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 80, 20));
-        getContentPane().add(txtViajesRealizados, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 80, 20));
-        getContentPane().add(txtConvivenciaAnimales, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 80, 20));
+        getContentPane().add(txtCirugiasPrevias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 120, 20));
+        getContentPane().add(txtPreexistencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 120, 20));
+        getContentPane().add(txtEsquemaVacunal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 120, 20));
+        getContentPane().add(txtTratamientoReciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 120, 20));
+        getContentPane().add(txtViajesRealizados, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 120, 20));
+        getContentPane().add(txtConvivenciaAnimales, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 120, 20));
 
         txtDieta.setColumns(20);
         txtDieta.setRows(5);
@@ -144,10 +144,10 @@ public class interfasAnamnesis extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel3.setText("Dieta:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 50, 20));
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 100, -1));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 140, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 820, 440));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 830, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

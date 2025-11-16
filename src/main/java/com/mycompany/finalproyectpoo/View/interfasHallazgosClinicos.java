@@ -77,7 +77,7 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Glangleos Linfatico:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 170, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 150, 20));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Piel y Pelaje:");
@@ -88,8 +88,8 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 150, 20));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel8.setText("Respiratorio");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 190, 20));
+        jLabel8.setText("Respiratorio:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 100, 20));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Endocrino:");
@@ -113,10 +113,10 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
                 ComboPielPelajeActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboPielPelaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 110, -1));
+        getContentPane().add(ComboPielPelaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 130, -1));
 
         ComboGlangleosLinfatico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normales", "Aumentados de tamaño", "Dolorosos a la palpación" }));
-        getContentPane().add(ComboGlangleosLinfatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 110, -1));
+        getContentPane().add(ComboGlangleosLinfatico, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 130, -1));
 
         ComboDigestivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Vómitos", "Diarrea" }));
         ComboDigestivo.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
                 ComboDigestivoActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboDigestivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 110, -1));
+        getContentPane().add(ComboDigestivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 130, -1));
 
         ComboRespiratorio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Tos", "Dificultad respiratoria (disnea)" }));
         ComboRespiratorio.addActionListener(new java.awt.event.ActionListener() {
@@ -132,16 +132,16 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
                 ComboRespiratorioActionPerformed(evt);
             }
         });
-        getContentPane().add(ComboRespiratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 110, -1));
+        getContentPane().add(ComboRespiratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 130, -1));
 
         ComboEndocrino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Polidipsia / Poliuria (mucha sed o micción)", "Pérdida de peso sin causa aparente" }));
-        getContentPane().add(ComboEndocrino, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 110, -1));
+        getContentPane().add(ComboEndocrino, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 130, -1));
 
         ComboNervioso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Convulsiones", "Descoordinación (ataxia)" }));
-        getContentPane().add(ComboNervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 110, -1));
+        getContentPane().add(ComboNervioso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 130, -1));
 
         ComboUrinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dificultad para orinar (disuria)", "Orina con sangre (hematuria)" }));
-        getContentPane().add(ComboUrinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
+        getContentPane().add(ComboUrinario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 330, 130, -1));
 
         jButton1.setText("Guardar y Continuar");
         jButton1.setMaximumSize(new java.awt.Dimension(72, 22));
@@ -170,19 +170,19 @@ public class interfasHallazgosClinicos extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, -1, -1));
 
         ComboReproductivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Secreción vaginal o prepucial", "Inflamación genital o testicular" }));
-        getContentPane().add(ComboReproductivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 100, -1));
+        getContentPane().add(ComboReproductivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, 130, -1));
 
         ComboMusculoEsqueletico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Cojera", "Dolor articular" }));
-        getContentPane().add(ComboMusculoEsqueletico, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 100, -1));
+        getContentPane().add(ComboMusculoEsqueletico, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 130, -1));
 
         ComboPalpacionRectal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Dolor a la palpación", "Masas o engrosamientos detectables" }));
-        getContentPane().add(ComboPalpacionRectal, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, 100, -1));
+        getContentPane().add(ComboPalpacionRectal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 130, -1));
 
         ComboHallazgosRelevantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sin hallazgos relevantes", "Lesiones múltiples", "Signos de dolor o malestar general" }));
-        getContentPane().add(ComboHallazgosRelevantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 100, -1));
+        getContentPane().add(ComboHallazgosRelevantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 130, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/finalproyectpoo/Imagenes/Marca_Final.png"))); // NOI18N
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 820, 430));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, 0, 830, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
