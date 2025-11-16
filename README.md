@@ -64,7 +64,7 @@ Como se observa en la estructura de paquetes:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone [URL-DE-TU-REPOSITORIO]
+    git clone [https://github.com/JuanTrader500/FinalProyectPOO]
     ```
 2.  **Base de Datos:**
     * Importar los archivos `.sql` (Se tratara de incluir en el repositorio PROXIMAMENTE ) en tu instancia local de **phpMyAdmin** para crear la estructura de tablas.
