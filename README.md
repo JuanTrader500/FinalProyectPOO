@@ -1,4 +1,3 @@
-# ENGLISH DOCUMENTATIOSN OF THE PROYECT
 # PROYECTOFINALPOO - J&M Veterinary Medical Record System
 
 This project is a desktop system for managing medical records in a veterinary clinic, developed in **Java** as a final project for the Object-Oriented Programming course.
