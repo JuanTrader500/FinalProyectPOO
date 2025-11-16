@@ -38,7 +38,7 @@ public class ConexionHistoria {
     public ImprimirHistoriaClinica obtenerReporteCompleto(int idHistoria) {
     ImprimirHistoriaClinica reporte = null;
     
-    // --- CONSULTA CORREGIDA (SELECT Y JOINs) ---
+    //CONSULTA CORREGIDA (SELECT Y JOINs)
     String sqlFijos = "SELECT " +
         // Propietario
         "p.id, p.nombre AS p_nombre, p.telefono, p.gmail, p.direccion, " +
@@ -96,11 +96,11 @@ public class ConexionHistoria {
                 Mascota m = new Mascota();
                 m.setId_mascota(rs.getInt("id_mascota"));
                 m.setNombre(rs.getString("m_nombre"));
-                m.setEspecie(rs.getString("especie")); // ✅ LÍNEA AÑADIDA
-                m.setRaza(rs.getString("raza")); // ✅ LÍNEA AÑADIDA
-                m.setSexo(rs.getString("sexo")); // ✅ LÍNEA AÑADIDA
-                m.setEdad(rs.getInt("edad")); // ✅ LÍNEA AÑADIDA
-                m.setPeso(rs.getDouble("peso")); // ✅ LÍNEA AÑADIDA
+                m.setEspecie(rs.getString("especie")); 
+                m.setRaza(rs.getString("raza")); 
+                m.setSexo(rs.getString("sexo")); 
+                m.setEdad(rs.getInt("edad")); 
+                m.setPeso(rs.getDouble("peso")); 
                 m.setColor(rs.getString("color"));
                 m.setPropietario(rs.getInt("id")); 
                 reporte.setMascota(m);
@@ -156,15 +156,15 @@ public class ConexionHistoria {
                 HallazgosClinicos h = new HallazgosClinicos();
                 h.setId_hallazgo(rs.getInt("id_hallazgos")); 
                 h.setPiel_pelage(rs.getString("piel_pelage"));
-                h.setGangleos_linfatico(rs.getString("gangleos_linfatico")); // ✅ LÍNEA AÑADIDA
-                h.setDigestivo(rs.getString("digestivo")); // ✅ LÍNEA AÑADIDA
-                h.setRespiratorio(rs.getString("respiratorio")); // ✅ LÍNEA AÑADIDA
-                h.setEndocrino(rs.getString("endocrino")); // ✅ LÍNEA AÑADIDA
-                h.setNervioso(rs.getString("nervioso")); // ✅ LÍNEA AÑADIDA
-                h.setUrinario(rs.getString("urinario")); // ✅ LÍNEA AÑADIDA
-                h.setReproductivo(rs.getString("reproductivo")); // ✅ LÍNEA AÑADIDA
-                h.setMusculo_esqueletico(rs.getString("musculo_esqueletico")); // ✅ LÍNEA AÑADIDA
-                h.setPalpacion_rectal(rs.getString("palpacion_rectal")); // ✅ LÍNEA AÑADIDA
+                h.setGangleos_linfatico(rs.getString("gangleos_linfatico")); 
+                h.setDigestivo(rs.getString("digestivo"));
+                h.setRespiratorio(rs.getString("respiratorio"));
+                h.setEndocrino(rs.getString("endocrino")); 
+                h.setNervioso(rs.getString("nervioso")); 
+                h.setUrinario(rs.getString("urinario")); 
+                h.setReproductivo(rs.getString("reproductivo")); 
+                h.setMusculo_esqueletico(rs.getString("musculo_esqueletico")); 
+                h.setPalpacion_rectal(rs.getString("palpacion_rectal")); 
                 h.setHallazgos_relevantes(rs.getString("hallazgos_relevantes"));
                 h.setId_historia(rs.getInt("id_historia")); 
                 reporte.setHallasgos_clinicos(h);
@@ -172,10 +172,10 @@ public class ConexionHistoria {
                 // 9. Mapear Examen Complementario (COMPLETO)
                 ExamenComplementario ec = new ExamenComplementario();
                 ec.setId_examen_complementario(rs.getInt("id_examen_complementario"));
-                ec.setTipo_examen(rs.getString("tipo_examen")); // ✅ LÍNEA AÑADIDA
-                ec.setFecha_examen(rs.getDate("fecha_examen")); // ✅ LÍNEA AÑADIDA
-                ec.setResultado(rs.getString("resultado")); // ✅ LÍNEA AÑADIDA
-                ec.setObservacion(rs.getString("observacion")); // ✅ LÍNEA AÑADIDA
+                ec.setTipo_examen(rs.getString("tipo_examen")); 
+                ec.setFecha_examen(rs.getDate("fecha_examen")); 
+                ec.setResultado(rs.getString("resultado")); 
+                ec.setObservacion(rs.getString("observacion")); 
                 ec.setId_historia(rs.getInt("id_historia")); 
                 reporte.setExamenComplementario(ec);
                 

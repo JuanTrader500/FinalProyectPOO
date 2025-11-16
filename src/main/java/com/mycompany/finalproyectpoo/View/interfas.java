@@ -32,7 +32,7 @@ public class interfas extends javax.swing.JFrame {
 
 public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
   
-    // 1. Crear la nueva ventana o diálogo
+    // Crear la nueva ventana o diálogo
     JDialog dialogoImpresion = new JDialog(this, "Reporte Historia Clínica #" + reporte.getIdHistoria(), true); 
     dialogoImpresion.setSize(800, 600);
     //dialogoImpresion.setLayout(new BorderLayout());
@@ -42,17 +42,17 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     dialogoImpresion.setContentPane(panelFondo); // 
     
     
-    // 2. Crear el área de texto
+    //Crear el área de texto
     JTextArea areaContenido = new JTextArea();
     areaContenido.setEditable(false);
     
-    // ✅ MODIFICADO: Hacer el JTextArea transparente
+    //Hacer el JTextArea transparente
     areaContenido.setOpaque(false); 
     areaContenido.setForeground(Color.BLACK);
 
     
     
-    // 3. Generar el contenido del reporte
+    //Generar el contenido del reporte
     
     StringBuilder sb = new StringBuilder();
 
@@ -105,7 +105,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
         sb.append("Convivencia (Otros Animales): ").append(reporte.getAnamnesis().getConvivencia_animales()).append("\n");
     } else { sb.append("Datos no disponibles.\n"); }
 
-    // --- EXAMEN FÍSICO ---
+    // --- EXAMEN FISICO ---
     sb.append("\n---️ EXAMEN FÍSICO ---\n");
     if (reporte.getExamenFisico() != null) {
         sb.append("Temperatura: ").append(reporte.getExamenFisico().getTemperatura()).append("\n"); 
@@ -119,7 +119,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
         sb.append("Observaciones (EF): ").append(reporte.getExamenFisico().getObservaciones()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
-    // --- HALLAZGOS CLÍNICOS ---
+    // --- HALLAZGOS CLINICOS ---
     sb.append("\n--- HALLAZGOS CLÍNICOS ---\n");
     if (reporte.getHallasgos_clinicos() != null) {
         sb.append("Piel/Pelaje: ").append(reporte.getHallasgos_clinicos().getPiel_pelage()).append("\n");
@@ -144,7 +144,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
         sb.append("Observación: ").append(reporte.getExamenComplementario().getObservacion()).append("\n"); 
     } else { sb.append("Datos no disponibles.\n"); }
 
-    // --- DIAGNÓSTICO ---
+    // --- DIAGNOSTICO ---
     sb.append("\n--- DIAGNÓSTICO ---\n");
     if (reporte.getDiagnostico() != null) {
         sb.append("Diagnóstico Presuntivo: ").append(reporte.getDiagnostico().getDiagnstico_presuntivo()).append("\n"); 
@@ -156,18 +156,18 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
 
     areaContenido.setText(sb.toString());
 
-    // 4. Agregar componentes a la ventana
+    //Agregar componentes a la ventana
     dialogoImpresion.add(new JScrollPane(areaContenido), BorderLayout.CENTER);
     
     JScrollPane scrollPane = new JScrollPane(areaContenido);
     scrollPane.setOpaque(false); // 
     scrollPane.getViewport().setOpaque(false);
     panelFondo.add(scrollPane, BorderLayout.CENTER);
-    // 5. Agregar el botón de IMPRIMIR
+    //Agregar el botón de IMPRIMIR
     JButton btnImprimir = new JButton("️Imprimir Reporte");
     btnImprimir.addActionListener(e -> {
         try {
-            // Llama a la función de impresión nativa de Java
+            // Llama a la funcion de impresión nativa de Java
             areaContenido.print(); 
         } catch (java.awt.print.PrinterException ex) {
             JOptionPane.showMessageDialog(dialogoImpresion, "Error al imprimir: " + ex.getMessage(), "Error de Impresión", JOptionPane.ERROR_MESSAGE);
@@ -176,7 +176,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
     
     dialogoImpresion.add(btnImprimir, BorderLayout.SOUTH);
     
-    // 6. Mostrar el diálogo
+    //Mostrar el dialogo
     dialogoImpresion.setLocationRelativeTo(this);
     dialogoImpresion.setVisible(true);
 }
@@ -371,7 +371,7 @@ public void mostrarReporteParaImprimir(ImprimirHistoriaClinica reporte) {
             // Éxito: Se encontró la historia. Pasamos al paso 2.
             mostrarReporteParaImprimir(reporte); // Llamamos a la nueva función de impresión
         } else {
-            // Error: No se encontró la historia
+            // Error: No se encontro la historia
             JOptionPane.showMessageDialog(this, "Historia Clínica con ID " + idHistoria + " no encontrada.", "Error de Búsqueda", JOptionPane.ERROR_MESSAGE);
         }
         
