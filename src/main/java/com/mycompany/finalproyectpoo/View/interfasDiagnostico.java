@@ -101,7 +101,7 @@ public class interfasDiagnostico extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 330, 110, 40));
 
-        jButton2.setText("Menu Prinsipal");
+        jButton2.setText("Menu Principal");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
